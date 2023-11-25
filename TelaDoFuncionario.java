@@ -8,12 +8,12 @@ package condoware.CondoWare;
  *
  * @author joaop
  */
-public class TelaDoCondomino extends javax.swing.JFrame {
+public class TelaDoFuncionario extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaDoCondomino
      */
-    public TelaDoCondomino() {
+    public TelaDoFuncionario() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -27,21 +27,27 @@ public class TelaDoCondomino extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btRegistrarProblemas = new javax.swing.JButton();
-        btReservarEspaços = new javax.swing.JButton();
+        btRegistarProblemas = new javax.swing.JButton();
+        btGerenciarEspaços = new javax.swing.JButton();
         btDadosPessoais = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btGerenciarPortão = new javax.swing.JButton();
+        btRegistrarVisitante = new javax.swing.JButton();
+        bRegistrarEmpressas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Inicial");
 
-        btRegistrarProblemas.setText("Registrar Problemas");
+        btRegistarProblemas.setText("Registrar Problemas");
 
-        btReservarEspaços.setText("Reservar Espaços");
+        btGerenciarEspaços.setText("Gerenciar Espaços");
 
         btDadosPessoais.setText("Dados Pessoais");
 
-        jButton1.setText("Empresas Parceiras");
+        btGerenciarPortão.setText("Gerenciar Portão");
+
+        btRegistrarVisitante.setText("Registrar Visitante");
+
+        bRegistrarEmpressas.setText("Registrar Empresas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -49,11 +55,14 @@ public class TelaDoCondomino extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(118, 118, 118)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btRegistrarProblemas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btReservarEspaços, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btDadosPessoais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(bRegistrarEmpressas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btRegistarProblemas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btGerenciarEspaços, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btDadosPessoais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btGerenciarPortão, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btRegistrarVisitante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -62,12 +71,16 @@ public class TelaDoCondomino extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(btDadosPessoais)
                 .addGap(18, 18, 18)
-                .addComponent(btReservarEspaços)
+                .addComponent(btGerenciarEspaços)
                 .addGap(18, 18, 18)
-                .addComponent(btRegistrarProblemas)
+                .addComponent(btRegistarProblemas)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(btGerenciarPortão)
+                .addGap(18, 18, 18)
+                .addComponent(btRegistrarVisitante)
+                .addGap(18, 18, 18)
+                .addComponent(bRegistrarEmpressas)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -90,28 +103,31 @@ public class TelaDoCondomino extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaDoCondomino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDoFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaDoCondomino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDoFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaDoCondomino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDoFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaDoCondomino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDoFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaDoCondomino().setVisible(true);
+                new TelaDoFuncionario().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bRegistrarEmpressas;
     private javax.swing.JButton btDadosPessoais;
-    private javax.swing.JButton btRegistrarProblemas;
-    private javax.swing.JButton btReservarEspaços;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btGerenciarEspaços;
+    private javax.swing.JButton btGerenciarPortão;
+    private javax.swing.JButton btRegistarProblemas;
+    private javax.swing.JButton btRegistrarVisitante;
     // End of variables declaration//GEN-END:variables
 }
