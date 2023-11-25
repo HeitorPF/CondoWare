@@ -4,6 +4,7 @@ public class AreaDeLazer {
     private String nome;
     private int capacidade;
     private Float valor;
+    private int idCondominio;
 
     public String getNome() {
         return nome;

@@ -1,10 +1,11 @@
 package condoware.CondoWare;
 
-public class Pessoa {
+public abstract class Pessoa {
     private String nome;
     private int cpf;
     private String email;
     private String senha;
+    private int idCondominio;
     
     public Pessoa() {
         nome = "";
@@ -46,6 +47,14 @@ public class Pessoa {
     
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public int getIdCondominio() {
+        return idCondominio;
+    }
+
+    public void setIdCondominio(int idCondominio) {
+        this.idCondominio = idCondominio;
     }
     
 }

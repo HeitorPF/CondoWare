@@ -4,6 +4,7 @@ public class Veiculo {
     private String placa;
     private String modelo;
     private String marca;
+    private int cpfDono;
 
     public Veiculo() {
         placa = "";
@@ -39,6 +40,14 @@ public class Veiculo {
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+
+    public int getCpfDono() {
+        return cpfDono;
+    }
+
+    public void setCpfDono(int cpfDono) {
+        this.cpfDono = cpfDono;
     }
     
     

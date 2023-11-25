@@ -6,6 +6,7 @@ public class Apartamento {
     private int numQuarto;
     private Boolean alugado;
     private int bloco;
+    private int cpfMorador;
 
     public int getNum() {
         return num;
