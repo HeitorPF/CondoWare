@@ -5,6 +5,7 @@ public class Condominio {
     private String endereco;
     private int quantAp;
     private int quantBlocos;
+    private int idCondominio;
 
     public String getNome() {
         return nome;
@@ -36,6 +37,14 @@ public class Condominio {
 
     public void setQuantBlocos(int quantBlocos) {
         this.quantBlocos = quantBlocos;
+    }
+
+    public int getIdCondominio() {
+        return idCondominio;
+    }
+
+    public void setIdCondominio(int idCondominio) {
+        this.idCondominio = idCondominio;
     }
     
 }
