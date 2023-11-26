@@ -40,6 +40,11 @@ public class CondoWare extends javax.swing.JFrame {
         rotSenha.setText("Senha:");
 
         btEntrar.setText("Entrar");
+        btEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEntrarActionPerformed(evt);
+            }
+        });
 
         rotSenhaPostgresql.setText("Senha para PostgreSql:");
 
@@ -116,6 +121,10 @@ public class CondoWare extends javax.swing.JFrame {
     private void cxSenhaPostgresqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxSenhaPostgresqlActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cxSenhaPostgresqlActionPerformed
+
+    private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btEntrarActionPerformed
 
     /**
      * @param args the command line arguments
