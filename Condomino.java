@@ -2,23 +2,41 @@ package condoware.CondoWare;
 
 public class Condomino extends Pessoa {
     
-    private int numAp;
+    private int apartamento;
+    private int bloco;
 
     private Veiculo veiculo = new Veiculo();
     
-    public int getNumAp() {
-        return numAp;
-    }
-
-    public void setNumAp(int numAp) {
-        this.numAp = numAp;
+    public Veiculo addVeiculo(String placa, String modelo, String marca) {
+        getVeiculo().setPlaca(placa);
+        getVeiculo().setModelo(modelo);
+        getVeiculo().setMarca(marca);
+        return getVeiculo();
     }
     
-    public Veiculo addVeiculo(String placa, String modelo, String marca) {
-        veiculo.setPlaca(placa);
-        veiculo.setModelo(modelo);
-        veiculo.setMarca(marca);
+    public int getApartamento() {
+        return apartamento;
+    }
+
+    public void setApartamento(int numAp) {
+        this.apartamento = apartamento;
+    }
+    
+
+    public int getBloco() {
+        return bloco;
+    }
+
+    public void setBloco(int bloco) {
+        this.bloco = bloco;
+    }
+
+    public Veiculo getVeiculo() {
         return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
     }
     
    
