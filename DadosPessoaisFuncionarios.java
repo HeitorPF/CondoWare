@@ -80,8 +80,18 @@ public class DadosPessoaisFuncionarios extends javax.swing.JFrame {
         });
 
         btEditar.setText("Editar");
+        btEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEditarActionPerformed(evt);
+            }
+        });
 
         btSalvarMudanças.setText("Salvar Mudanças");
+        btSalvarMudanças.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarMudançasActionPerformed(evt);
+            }
+        });
 
         Placa.setText("Placa do Veiculo:");
 
@@ -176,14 +186,16 @@ public class DadosPessoaisFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        cxNome.setEnabled(false);
-        cxCPF.setEnabled(false);
-        cxEmail.setEnabled(false);
-        cxSenha.setEnabled(false);
-        cxSalario.setEnabled(false);
-        cxCargo.setEnabled(false);
-        cxPlaca.setEnabled(false);
+        desativarCaixas();
     }//GEN-LAST:event_formWindowActivated
+
+    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
+        ativarEdicao();
+    }//GEN-LAST:event_btEditarActionPerformed
+
+    private void btSalvarMudançasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarMudançasActionPerformed
+        desativarCaixas();
+    }//GEN-LAST:event_btSalvarMudançasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,6 +233,23 @@ public class DadosPessoaisFuncionarios extends javax.swing.JFrame {
                 new DadosPessoaisFuncionarios().setVisible(true);
             }
         });
+    }
+    
+    public void ativarEdicao(){
+        cxNome.setEnabled(true);
+        cxEmail.setEnabled(true);
+        cxSenha.setEnabled(true);
+        cxPlaca.setEnabled(true);
+    }
+    
+    public void desativarCaixas(){
+        cxNome.setEnabled(false);
+        cxCPF.setEnabled(false);
+        cxEmail.setEnabled(false);
+        cxSenha.setEnabled(false);
+        cxSalario.setEnabled(false);
+        cxCargo.setEnabled(false);
+        cxPlaca.setEnabled(false); 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

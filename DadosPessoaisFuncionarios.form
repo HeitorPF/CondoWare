@@ -184,11 +184,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Editar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btEditarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btSalvarMudan&#xe7;as">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salvar Mudan&#xe7;as"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSalvarMudan&#xe7;asActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="Placa">
       <Properties>
