@@ -1,11 +1,8 @@
 package condoware.CondoWare;
 
+
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author joaop
- */
 public class CondoWare extends javax.swing.JFrame {
 
     
@@ -16,6 +13,7 @@ public class CondoWare extends javax.swing.JFrame {
 
     
     private static String senhaPostgreSql = "";
+    private int cpf = 0;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
