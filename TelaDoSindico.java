@@ -42,6 +42,7 @@ public class TelaDoSindico extends javax.swing.JFrame {
         bRegistrarEmpressas = new javax.swing.JButton();
         btGerenciarFuncionario = new javax.swing.JButton();
         btGerenciarCondomino = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Incial");
@@ -67,6 +68,13 @@ public class TelaDoSindico extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Empresas Parceiras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,7 +89,8 @@ public class TelaDoSindico extends javax.swing.JFrame {
                     .addComponent(btGerenciarPortão, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btRegistrarVisitante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btGerenciarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btGerenciarCondomino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btGerenciarCondomino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(111, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -100,10 +109,12 @@ public class TelaDoSindico extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(bRegistrarEmpressas)
                 .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
                 .addComponent(btGerenciarFuncionario)
                 .addGap(18, 18, 18)
                 .addComponent(btGerenciarCondomino)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -112,6 +123,10 @@ public class TelaDoSindico extends javax.swing.JFrame {
     private void btGerenciarCondominoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerenciarCondominoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btGerenciarCondominoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        EmpresasParceiras.getEmpresasParceirasUnic().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,5 +175,6 @@ public class TelaDoSindico extends javax.swing.JFrame {
     private javax.swing.JButton btGerenciarPortão;
     private javax.swing.JButton btRegistarProblemas;
     private javax.swing.JButton btRegistrarVisitante;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

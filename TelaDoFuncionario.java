@@ -41,8 +41,9 @@ public class TelaDoFuncionario extends javax.swing.JFrame {
         btGerenciarPortão = new javax.swing.JButton();
         btRegistrarVisitante = new javax.swing.JButton();
         bRegistrarEmpressas = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela Inicial");
 
         btRegistarProblemas.setText("Registrar Problemas");
@@ -53,6 +54,11 @@ public class TelaDoFuncionario extends javax.swing.JFrame {
         });
 
         btGerenciarEspaços.setText("Gerenciar Espaços");
+        btGerenciarEspaços.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGerenciarEspaçosActionPerformed(evt);
+            }
+        });
 
         btDadosPessoais.setText("Dados Pessoais");
         btDadosPessoais.addActionListener(new java.awt.event.ActionListener() {
@@ -62,10 +68,32 @@ public class TelaDoFuncionario extends javax.swing.JFrame {
         });
 
         btGerenciarPortão.setText("Gerenciar Portão");
+        btGerenciarPortão.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGerenciarPortãoActionPerformed(evt);
+            }
+        });
 
         btRegistrarVisitante.setText("Registrar Visitante");
+        btRegistrarVisitante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegistrarVisitanteActionPerformed(evt);
+            }
+        });
 
         bRegistrarEmpressas.setText("Registrar Empresas");
+        bRegistrarEmpressas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRegistrarEmpressasActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Empresas Parceiras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,7 +107,8 @@ public class TelaDoFuncionario extends javax.swing.JFrame {
                     .addComponent(btGerenciarEspaços, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btDadosPessoais, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btGerenciarPortão, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btRegistrarVisitante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btRegistrarVisitante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -97,7 +126,9 @@ public class TelaDoFuncionario extends javax.swing.JFrame {
                 .addComponent(btRegistrarVisitante)
                 .addGap(18, 18, 18)
                 .addComponent(bRegistrarEmpressas)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -110,6 +141,26 @@ public class TelaDoFuncionario extends javax.swing.JFrame {
     private void btDadosPessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDadosPessoaisActionPerformed
         DadosPessoaisFuncionarios.getDadosPessoaisFuncUnic().setVisible(true);
     }//GEN-LAST:event_btDadosPessoaisActionPerformed
+
+    private void btGerenciarEspaçosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerenciarEspaçosActionPerformed
+        GerenciarEspaços.getTelaFuncUnic().setVisible(true);
+    }//GEN-LAST:event_btGerenciarEspaçosActionPerformed
+
+    private void btGerenciarPortãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerenciarPortãoActionPerformed
+       GerenciarPortão.getGerenciarPortaoUnic().setVisible(true);
+    }//GEN-LAST:event_btGerenciarPortãoActionPerformed
+
+    private void bRegistrarEmpressasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarEmpressasActionPerformed
+        RegistrarEmpresas.getRegistrarEmpresasUnic().setVisible(true);
+    }//GEN-LAST:event_bRegistrarEmpressasActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        EmpresasParceiras.getEmpresasParceirasUnic().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btRegistrarVisitanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarVisitanteActionPerformed
+        RegistrarVisitante.getRegistrarVisitanteUnic().setVisible(true);
+    }//GEN-LAST:event_btRegistrarVisitanteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,5 +205,6 @@ public class TelaDoFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton btGerenciarPortão;
     private javax.swing.JButton btRegistarProblemas;
     private javax.swing.JButton btRegistrarVisitante;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

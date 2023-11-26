@@ -1,5 +1,7 @@
 package condoware.CondoWare;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author joaop
@@ -131,16 +133,20 @@ public class CondoWare extends javax.swing.JFrame {
 
     private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
         if(Conexao.getConexao().verificaCargo(cxEmail.getText()) == 0) { //não achou email
-
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Email não encontrado!",
+                        "Não encontrado",
+                        1);  
         }
         if(Conexao.getConexao().verificaCargo(cxEmail.getText()) == 1) { //síndico
-
+            TelaDoSindico.getTelaSindicoUnic().setVisible(true);
         }
         if(Conexao.getConexao().verificaCargo(cxEmail.getText()) == 2) { //funcionario
-
+            TelaDoFuncionario.getTelaFuncUnic().setVisible(true);
         }
         if(Conexao.getConexao().verificaCargo(cxEmail.getText()) == 3) { //morador
-
+            TelaDoCondomino.getTelaCondominoUnic().setVisible(true);
         }
     }//GEN-LAST:event_btEntrarActionPerformed
 
