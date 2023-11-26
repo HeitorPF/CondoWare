@@ -98,7 +98,7 @@ public class Conexao {
                     morador.getVeiculo().setPlaca(placa);
                     morador.setEmail(email);
                     morador.setSenha(senha);
-                    
+                    System.out.println(nome);
                     Bancos.getBancos().getBdCondomino().add(morador);
                 }
             } catch (SQLException e) {
@@ -112,12 +112,12 @@ public class Conexao {
     }
     
     public int achaCondominoCpf(String cpf) {
-        int tamanho = Bancos.getBancos().getBdCondomino().size();
-        while(tamanho>=0) {
+        int tamanho = 0;
+        while(tamanho <= Bancos.getBancos().getBdCondomino().size()) {
             if(Bancos.getBancos().getBdCondomino().get(tamanho).getCpf() == cpf) {
                 return tamanho;
             }
-            tamanho --;
+            tamanho = tamanho + 1;
         }
         return tamanho;
     }
