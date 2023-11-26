@@ -11,7 +11,7 @@ public class Conexao {
     
     private String url;
     private String usuario;
-    private String senha;
+    private  static String senha;
     private Connection con;
     private static Conexao conUnico;
     
