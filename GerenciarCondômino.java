@@ -43,12 +43,32 @@ public class GerenciarCondômino extends javax.swing.JFrame {
         setTitle("Gerenciamento de Condôminos");
 
         btAdicionar.setText("Adicionar");
+        btAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdicionarActionPerformed(evt);
+            }
+        });
 
         btEditar.setText("Editar");
+        btEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEditarActionPerformed(evt);
+            }
+        });
 
         btApagar.setText("Apagar");
+        btApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btApagarActionPerformed(evt);
+            }
+        });
 
         btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,6 +99,22 @@ public class GerenciarCondômino extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
+        AddCondomino.getAddCondominoUnic().setVisible(true);
+    }//GEN-LAST:event_btAdicionarActionPerformed
+
+    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
+        EditCondomino.getEditCondominoUnic().setVisible(true);
+    }//GEN-LAST:event_btEditarActionPerformed
+
+    private void btApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btApagarActionPerformed
+        ApagarCondomino.getEditCondominoUnic().setVisible(true);
+    }//GEN-LAST:event_btApagarActionPerformed
+
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btVoltarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -72,36 +72,57 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrar Problemas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btRegistarProblemasActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btGerenciarEspa&#xe7;os">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gerenciar Espa&#xe7;os"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btGerenciarEspa&#xe7;osActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btDadosPessoais">
       <Properties>
         <Property name="text" type="java.lang.String" value="Dados Pessoais"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btDadosPessoaisActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btGerenciarPort&#xe3;o">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gerenciar Port&#xe3;o"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btGerenciarPort&#xe3;oActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btRegistrarVisitante">
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrar Visitante"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btRegistrarVisitanteActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bRegistrarEmpressas">
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrar Empresas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bRegistrarEmpressasActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btGerenciarFuncionario">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gerenciar Funcionario"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btGerenciarFuncionarioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btGerenciarCondomino">
       <Properties>

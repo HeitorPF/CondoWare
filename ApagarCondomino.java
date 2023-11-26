@@ -8,22 +8,22 @@ package condoware.CondoWare;
  *
  * @author joaop
  */
-public class ApagarFuncionario extends javax.swing.JFrame {
+public class ApagarCondomino extends javax.swing.JFrame {
 
     /**
      * Creates new form AddFuncionario
      */
-    private ApagarFuncionario() {
+    private ApagarCondomino() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    private static ApagarFuncionario apagarFuncionarioUnic;
-    public static ApagarFuncionario getApagarFuncionarioUnic() {
-        if (apagarFuncionarioUnic == null) {
-            apagarFuncionarioUnic = new ApagarFuncionario();
+    private static ApagarCondomino editCondominoUnic;
+    public static ApagarCondomino getEditCondominoUnic() {
+        if (editCondominoUnic == null) {
+            editCondominoUnic = new ApagarCondomino();
         }
-        return apagarFuncionarioUnic;
+        return editCondominoUnic;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,15 +36,15 @@ public class ApagarFuncionario extends javax.swing.JFrame {
 
         rotNome = new javax.swing.JLabel();
         rotCPF = new javax.swing.JLabel();
-        rotSalario = new javax.swing.JLabel();
-        rotCargo = new javax.swing.JLabel();
+        rotBloco = new javax.swing.JLabel();
+        rotAp = new javax.swing.JLabel();
         rotEmail = new javax.swing.JLabel();
         rotSenha = new javax.swing.JLabel();
         rotPlaca = new javax.swing.JLabel();
         cxNome = new javax.swing.JTextField();
         cxCPF = new javax.swing.JTextField();
-        cxSalario = new javax.swing.JTextField();
-        cxCargo = new javax.swing.JTextField();
+        cxBloco = new javax.swing.JTextField();
+        cxAp = new javax.swing.JTextField();
         cxEmail = new javax.swing.JTextField();
         cxSenha = new javax.swing.JTextField();
         cxPlaca = new javax.swing.JTextField();
@@ -53,15 +53,15 @@ public class ApagarFuncionario extends javax.swing.JFrame {
         btMostrarDados = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Deletar Funcionario");
+        setTitle("Deletar Condômino");
 
         rotNome.setText("Nome:");
 
         rotCPF.setText("CPF:");
 
-        rotSalario.setText("Salário:");
+        rotBloco.setText("Bloco:");
 
-        rotCargo.setText("Cargo:");
+        rotAp.setText("Apartamento:");
 
         rotEmail.setText("Email:");
 
@@ -97,13 +97,13 @@ public class ApagarFuncionario extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(rotSalario)
+                            .addComponent(rotBloco)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(cxSalario))
+                            .addComponent(cxBloco))
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(rotCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(cxCargo))
+                            .addComponent(rotAp)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(cxAp))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(rotEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -143,12 +143,12 @@ public class ApagarFuncionario extends javax.swing.JFrame {
                     .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rotSalario)
-                    .addComponent(cxSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rotBloco)
+                    .addComponent(cxBloco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rotCargo)
-                    .addComponent(cxCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rotAp)
+                    .addComponent(cxAp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rotEmail)
@@ -178,8 +178,8 @@ public class ApagarFuncionario extends javax.swing.JFrame {
 
     public void limpar(){
         cxNome.setText("");
-        cxSalario.setText("");
-        cxCargo.setText("");
+        cxBloco.setText("");
+        cxAp.setText("");
         cxEmail.setText("");
         cxSenha.setText("");
         cxPlaca.setText("");
@@ -201,14 +201,26 @@ public class ApagarFuncionario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ApagarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApagarCondomino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ApagarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApagarCondomino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ApagarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApagarCondomino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ApagarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApagarCondomino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -217,7 +229,7 @@ public class ApagarFuncionario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ApagarFuncionario().setVisible(true);
+                new ApagarCondomino().setVisible(true);
             }
         });
     }
@@ -226,19 +238,19 @@ public class ApagarFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton btDeletar;
     private javax.swing.JButton btMostrarDados;
     private javax.swing.JButton btVoltar;
+    private javax.swing.JTextField cxAp;
+    private javax.swing.JTextField cxBloco;
     private javax.swing.JTextField cxCPF;
-    private javax.swing.JTextField cxCargo;
     private javax.swing.JTextField cxEmail;
     private javax.swing.JTextField cxNome;
     private javax.swing.JTextField cxPlaca;
-    private javax.swing.JTextField cxSalario;
     private javax.swing.JTextField cxSenha;
+    private javax.swing.JLabel rotAp;
+    private javax.swing.JLabel rotBloco;
     private javax.swing.JLabel rotCPF;
-    private javax.swing.JLabel rotCargo;
     private javax.swing.JLabel rotEmail;
     private javax.swing.JLabel rotNome;
     private javax.swing.JLabel rotPlaca;
-    private javax.swing.JLabel rotSalario;
     private javax.swing.JLabel rotSenha;
     // End of variables declaration//GEN-END:variables
 }

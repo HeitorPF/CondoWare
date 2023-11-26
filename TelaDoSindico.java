@@ -48,18 +48,53 @@ public class TelaDoSindico extends javax.swing.JFrame {
         setTitle("Tela Incial");
 
         btRegistarProblemas.setText("Registrar Problemas");
+        btRegistarProblemas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegistarProblemasActionPerformed(evt);
+            }
+        });
 
         btGerenciarEspaços.setText("Gerenciar Espaços");
+        btGerenciarEspaços.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGerenciarEspaçosActionPerformed(evt);
+            }
+        });
 
         btDadosPessoais.setText("Dados Pessoais");
+        btDadosPessoais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDadosPessoaisActionPerformed(evt);
+            }
+        });
 
         btGerenciarPortão.setText("Gerenciar Portão");
+        btGerenciarPortão.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGerenciarPortãoActionPerformed(evt);
+            }
+        });
 
         btRegistrarVisitante.setText("Registrar Visitante");
+        btRegistrarVisitante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegistrarVisitanteActionPerformed(evt);
+            }
+        });
 
         bRegistrarEmpressas.setText("Registrar Empresas");
+        bRegistrarEmpressas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRegistrarEmpressasActionPerformed(evt);
+            }
+        });
 
         btGerenciarFuncionario.setText("Gerenciar Funcionario");
+        btGerenciarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGerenciarFuncionarioActionPerformed(evt);
+            }
+        });
 
         btGerenciarCondomino.setText("Gerenciar Condômino");
         btGerenciarCondomino.addActionListener(new java.awt.event.ActionListener() {
@@ -121,12 +156,40 @@ public class TelaDoSindico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btGerenciarCondominoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerenciarCondominoActionPerformed
-        // TODO add your handling code here:
+        GerenciarCondômino.getGerenciarCondominoUnic().setVisible(true);
     }//GEN-LAST:event_btGerenciarCondominoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         EmpresasParceiras.getEmpresasParceirasUnic().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btDadosPessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDadosPessoaisActionPerformed
+        DadosPessoaisFuncionarios.getDadosPessoaisFuncUnic().setVisible(true);
+    }//GEN-LAST:event_btDadosPessoaisActionPerformed
+
+    private void btGerenciarEspaçosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerenciarEspaçosActionPerformed
+        GerenciarEspaços.getTelaFuncUnic().setVisible(true);
+    }//GEN-LAST:event_btGerenciarEspaçosActionPerformed
+
+    private void btRegistarProblemasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistarProblemasActionPerformed
+        RegistrarProblemas.getRegistrarProblemasUnic().setVisible(true);
+    }//GEN-LAST:event_btRegistarProblemasActionPerformed
+
+    private void btGerenciarPortãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerenciarPortãoActionPerformed
+        GerenciarPortão.getGerenciarPortaoUnic().setVisible(true);
+    }//GEN-LAST:event_btGerenciarPortãoActionPerformed
+
+    private void btRegistrarVisitanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarVisitanteActionPerformed
+        RegistrarVisitante.getRegistrarVisitanteUnic().setVisible(true);
+    }//GEN-LAST:event_btRegistrarVisitanteActionPerformed
+
+    private void bRegistrarEmpressasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarEmpressasActionPerformed
+        RegistrarEmpresas.getRegistrarEmpresasUnic().setVisible(true);
+    }//GEN-LAST:event_bRegistrarEmpressasActionPerformed
+
+    private void btGerenciarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerenciarFuncionarioActionPerformed
+        GerenciarFuncionario.getGerenciarFuncionarioUnic().setVisible(true);
+    }//GEN-LAST:event_btGerenciarFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
