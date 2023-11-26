@@ -13,11 +13,18 @@ public class TelaDoSindico extends javax.swing.JFrame {
     /**
      * Creates new form TelaDoCondomino
      */
-    public TelaDoSindico() {
+    private TelaDoSindico() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-
+    
+    private static TelaDoSindico telaSindicoUnic;
+    public static TelaDoSindico getTelaSindicoUnic(){
+        if(telaSindicoUnic == null){
+            telaSindicoUnic = new TelaDoSindico();
+        }
+        return telaSindicoUnic;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

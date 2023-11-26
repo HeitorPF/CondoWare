@@ -13,9 +13,17 @@ public class TelaDoFuncionario extends javax.swing.JFrame {
     /**
      * Creates new form TelaDoCondomino
      */
-    public TelaDoFuncionario() {
+    private TelaDoFuncionario() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    
+    private static TelaDoFuncionario telaFuncUnic;
+    public static TelaDoFuncionario getTelaFuncUnic(){
+        if(telaFuncUnic == null){
+            telaFuncUnic = new TelaDoFuncionario();
+        }
+        return telaFuncUnic;
     }
 
     /**
@@ -38,10 +46,20 @@ public class TelaDoFuncionario extends javax.swing.JFrame {
         setTitle("Tela Inicial");
 
         btRegistarProblemas.setText("Registrar Problemas");
+        btRegistarProblemas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegistarProblemasActionPerformed(evt);
+            }
+        });
 
         btGerenciarEspaços.setText("Gerenciar Espaços");
 
         btDadosPessoais.setText("Dados Pessoais");
+        btDadosPessoais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDadosPessoaisActionPerformed(evt);
+            }
+        });
 
         btGerenciarPortão.setText("Gerenciar Portão");
 
@@ -57,12 +75,11 @@ public class TelaDoFuncionario extends javax.swing.JFrame {
                 .addGap(118, 118, 118)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bRegistrarEmpressas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btRegistarProblemas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btGerenciarEspaços, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btDadosPessoais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btGerenciarPortão, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btRegistrarVisitante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btRegistarProblemas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btGerenciarEspaços, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btDadosPessoais, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btGerenciarPortão, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btRegistrarVisitante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -85,6 +102,14 @@ public class TelaDoFuncionario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btRegistarProblemasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistarProblemasActionPerformed
+        RegistrarProblemas.getRegistrarProblemasUnic().setVisible(true);
+    }//GEN-LAST:event_btRegistarProblemasActionPerformed
+
+    private void btDadosPessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDadosPessoaisActionPerformed
+        DadosPessoaisFuncionarios.getDadosPessoaisFuncUnic().setVisible(true);
+    }//GEN-LAST:event_btDadosPessoaisActionPerformed
 
     /**
      * @param args the command line arguments

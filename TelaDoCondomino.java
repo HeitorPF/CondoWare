@@ -13,9 +13,17 @@ public class TelaDoCondomino extends javax.swing.JFrame {
     /**
      * Creates new form TelaDoCondomino
      */
-    public TelaDoCondomino() {
+    private TelaDoCondomino() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    
+    private static TelaDoCondomino telaCondominoUnic;
+    public static TelaDoCondomino getTelaCondominoUnic(){
+        if(telaCondominoUnic == null){
+            telaCondominoUnic = new TelaDoCondomino();
+        }
+        return telaCondominoUnic;
     }
 
     /**
@@ -32,16 +40,36 @@ public class TelaDoCondomino extends javax.swing.JFrame {
         btDadosPessoais = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela Inicial");
 
         btRegistrarProblemas.setText("Registrar Problemas");
+        btRegistrarProblemas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegistrarProblemasActionPerformed(evt);
+            }
+        });
 
         btReservarEspaços.setText("Reservar Espaços");
+        btReservarEspaços.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btReservarEspaçosActionPerformed(evt);
+            }
+        });
 
         btDadosPessoais.setText("Dados Pessoais");
+        btDadosPessoais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDadosPessoaisActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Empresas Parceiras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,6 +100,22 @@ public class TelaDoCondomino extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btDadosPessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDadosPessoaisActionPerformed
+        DadosPessoaisCondômino.getDadosPessoaisCondUnic().setVisible(true);
+    }//GEN-LAST:event_btDadosPessoaisActionPerformed
+
+    private void btReservarEspaçosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReservarEspaçosActionPerformed
+        ReservarEspaços.getReservarEspaçosUnic().setVisible(true);
+    }//GEN-LAST:event_btReservarEspaçosActionPerformed
+
+    private void btRegistrarProblemasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarProblemasActionPerformed
+        RegistrarProblemas.getRegistrarProblemasUnic().setVisible(true);
+    }//GEN-LAST:event_btRegistrarProblemasActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        EmpresasParceiras.getEmpresasParceirasUnic().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
