@@ -42,7 +42,7 @@ public class DadosPessoaisCondômino extends javax.swing.JFrame {
         cxSenha = new javax.swing.JPasswordField();
         cxAp = new javax.swing.JTextField();
         btVoltar = new javax.swing.JButton();
-        btEditarSenha = new javax.swing.JButton();
+        btEditar = new javax.swing.JButton();
         btSalvarMudanças = new javax.swing.JButton();
         rotPlaca = new javax.swing.JLabel();
         cxPlaca = new javax.swing.JTextField();
@@ -80,9 +80,19 @@ public class DadosPessoaisCondômino extends javax.swing.JFrame {
             }
         });
 
-        btEditarSenha.setText("Editar");
+        btEditar.setText("Editar");
+        btEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEditarActionPerformed(evt);
+            }
+        });
 
         btSalvarMudanças.setText("Salvar Mudanças");
+        btSalvarMudanças.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarMudançasActionPerformed(evt);
+            }
+        });
 
         rotPlaca.setText("Placa do Veiculo:");
 
@@ -96,38 +106,37 @@ public class DadosPessoaisCondômino extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btVoltar)
                         .addGap(41, 41, 41)
-                        .addComponent(btEditarSenha)
+                        .addComponent(btEditar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btSalvarMudanças))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(rotPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cxPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(rotNome, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cxNome))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(rotCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cxCPF))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(rotEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cxEmail))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(rotSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cxSenha))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(rotBloco, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cxBloco))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(rotApartamento)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cxAp))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(rotPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cxPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(rotNome, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cxNome))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(rotCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cxCPF))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(rotEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cxEmail))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(rotSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cxSenha))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(rotBloco, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cxBloco))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(rotApartamento)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cxAp)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -164,7 +173,7 @@ public class DadosPessoaisCondômino extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvarMudanças)
-                    .addComponent(btEditarSenha)
+                    .addComponent(btEditar)
                     .addComponent(btVoltar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -181,6 +190,7 @@ public class DadosPessoaisCondômino extends javax.swing.JFrame {
     }//GEN-LAST:event_cxNomeActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
         index = Conexao.getConexao().achaCondominoCpf(CondoWare.getCpf());
         cxNome.setEnabled(false);
         cxNome.setName(Bancos.getBancos().getBdCondomino().get(index-1).getNome());
@@ -196,7 +206,16 @@ public class DadosPessoaisCondômino extends javax.swing.JFrame {
         cxAp.setName(Integer.toString(Bancos.getBancos().getBdCondomino().get(index-1).getApartamento()));
         cxPlaca.setEnabled(false);   
         cxPlaca.setName(Bancos.getBancos().getBdCondomino().get(index).getVeiculo().getPlaca());
+        desativarCaixas(); 
     }//GEN-LAST:event_formWindowActivated
+
+    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
+        ativarEdicao();
+    }//GEN-LAST:event_btEditarActionPerformed
+
+    private void btSalvarMudançasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarMudançasActionPerformed
+        desativarCaixas();
+    }//GEN-LAST:event_btSalvarMudançasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,9 +252,26 @@ public class DadosPessoaisCondômino extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void desativarCaixas(){
+        cxNome.setEnabled(false);
+        cxCPF.setEnabled(false);
+        cxEmail.setEnabled(false);
+        cxSenha.setEnabled(false);
+        cxBloco.setEnabled(false);
+        cxAp.setEnabled(false);
+        cxPlaca.setEnabled(false); 
+    }
+    
+    public void ativarEdicao(){
+        cxNome.setEnabled(true);
+        cxEmail.setEnabled(true);
+        cxSenha.setEnabled(true);
+        cxPlaca.setEnabled(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btEditarSenha;
+    private javax.swing.JButton btEditar;
     private javax.swing.JButton btSalvarMudanças;
     private javax.swing.JButton btVoltar;
     private javax.swing.JTextField cxAp;
