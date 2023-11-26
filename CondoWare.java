@@ -10,7 +10,8 @@ public class CondoWare extends javax.swing.JFrame {
 
     
     private static String senhaPostgreSql = "";
-    private int cpf = 0;
+    private static String cpf = "";
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,6 +37,7 @@ public class CondoWare extends javax.swing.JFrame {
 
         rotSenha.setText("Senha:");
 
+        cxEmail.setText("paula@gmail.com");
         cxEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cxEmailActionPerformed(evt);
@@ -139,6 +141,7 @@ public class CondoWare extends javax.swing.JFrame {
         if(Conexao.getConexao().verificaCargo(cxEmail.getText()) == 3) { //morador
 
         }
+        setCpf(Conexao.getConexao().buscaCpf(cxEmail.getText()));
     }//GEN-LAST:event_btEntrarActionPerformed
 
     private void cxEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxEmailActionPerformed
@@ -198,5 +201,13 @@ public class CondoWare extends javax.swing.JFrame {
 
     public static void setSenhaPostgreSql(String senhaPostgreSql) {
         CondoWare.senhaPostgreSql = senhaPostgreSql;
+    }
+
+    public static String getCpf() {
+        return cpf;
+    }
+
+    public static void setCpf(String cpf) {
+        CondoWare.cpf = cpf;
     }
 }

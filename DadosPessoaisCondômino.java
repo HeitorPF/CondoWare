@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package condoware.CondoWare;
 
-/**
- *
- * @author joaop
- */
 public class DadosPessoaisCondômino extends javax.swing.JFrame {
 
     /**
@@ -25,6 +17,8 @@ public class DadosPessoaisCondômino extends javax.swing.JFrame {
         }
         return dadosPessoaisCondUnic;
     }
+    
+    private int index = 0;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -188,12 +182,20 @@ public class DadosPessoaisCondômino extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         cxNome.setEnabled(false);
+        cxNome.setName(Bancos.getBancos().getBdCondomino().get(index).getNome());
         cxCPF.setEnabled(false);
+        cxCPF.setName(Bancos.getBancos().getBdCondomino().get(index).getCpf());
         cxEmail.setEnabled(false);
+        cxEmail.setName(Bancos.getBancos().getBdCondomino().get(index).getEmail());
         cxSenha.setEnabled(false);
+        cxSenha.setName(Bancos.getBancos().getBdCondomino().get(index).getSenha());
         cxBloco.setEnabled(false);
+        cxBloco.setName(Integer.toString(Bancos.getBancos().getBdCondomino().get(index).getBloco()));
         cxAp.setEnabled(false);
+        cxAp.setName(Integer.toString(Bancos.getBancos().getBdCondomino().get(index).getApartamento()));
         cxPlaca.setEnabled(false);   
+        cxPlaca.setName(Bancos.getBancos().getBdCondomino().get(index).getVeiculo().getPlaca());
+        index = Conexao.getConexao().achaCondominoCpf(CondoWare.getCpf());
     }//GEN-LAST:event_formWindowActivated
 
     /**

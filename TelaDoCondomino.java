@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package condoware.CondoWare;
 
-/**
- *
- * @author joaop
- */
+
 public class TelaDoCondomino extends javax.swing.JFrame {
 
     /**
@@ -25,6 +18,8 @@ public class TelaDoCondomino extends javax.swing.JFrame {
         }
         return telaCondominoUnic;
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -103,6 +98,7 @@ public class TelaDoCondomino extends javax.swing.JFrame {
 
     private void btDadosPessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDadosPessoaisActionPerformed
         DadosPessoaisCondômino.getDadosPessoaisCondUnic().setVisible(true);
+        Conexao.getConexao().atualizaBancoCondomino();
     }//GEN-LAST:event_btDadosPessoaisActionPerformed
 
     private void btReservarEspaçosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReservarEspaçosActionPerformed
