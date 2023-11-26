@@ -33,8 +33,8 @@ public class TelaDoSindico extends javax.swing.JFrame {
         btGerenciarPortão = new javax.swing.JButton();
         btRegistrarVisitante = new javax.swing.JButton();
         bRegistrarEmpressas = new javax.swing.JButton();
-        btCadastrarFuncionario = new javax.swing.JButton();
-        btCadastrarCondomino = new javax.swing.JButton();
+        btGerenciarFuncionario = new javax.swing.JButton();
+        btGerenciarCondomino = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Incial");
@@ -51,9 +51,14 @@ public class TelaDoSindico extends javax.swing.JFrame {
 
         bRegistrarEmpressas.setText("Registrar Empresas");
 
-        btCadastrarFuncionario.setText("Cadastrar Funcionario");
+        btGerenciarFuncionario.setText("Gerenciar Funcionario");
 
-        btCadastrarCondomino.setText("Cadastrar Condômino");
+        btGerenciarCondomino.setText("Gerenciar Condômino");
+        btGerenciarCondomino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGerenciarCondominoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,8 +73,8 @@ public class TelaDoSindico extends javax.swing.JFrame {
                     .addComponent(btDadosPessoais, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btGerenciarPortão, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btRegistrarVisitante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btCadastrarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btCadastrarCondomino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btGerenciarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btGerenciarCondomino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(111, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -88,14 +93,18 @@ public class TelaDoSindico extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(bRegistrarEmpressas)
                 .addGap(18, 18, 18)
-                .addComponent(btCadastrarFuncionario)
+                .addComponent(btGerenciarFuncionario)
                 .addGap(18, 18, 18)
-                .addComponent(btCadastrarCondomino)
+                .addComponent(btGerenciarCondomino)
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btGerenciarCondominoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerenciarCondominoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btGerenciarCondominoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,10 +146,10 @@ public class TelaDoSindico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bRegistrarEmpressas;
-    private javax.swing.JButton btCadastrarCondomino;
-    private javax.swing.JButton btCadastrarFuncionario;
     private javax.swing.JButton btDadosPessoais;
+    private javax.swing.JButton btGerenciarCondomino;
     private javax.swing.JButton btGerenciarEspaços;
+    private javax.swing.JButton btGerenciarFuncionario;
     private javax.swing.JButton btGerenciarPortão;
     private javax.swing.JButton btRegistarProblemas;
     private javax.swing.JButton btRegistrarVisitante;

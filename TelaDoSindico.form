@@ -33,8 +33,8 @@
                   <Component id="btDadosPessoais" alignment="1" max="32767" attributes="0"/>
                   <Component id="btGerenciarPortão" alignment="1" max="32767" attributes="0"/>
                   <Component id="btRegistrarVisitante" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btCadastrarFuncionario" max="32767" attributes="0"/>
-                  <Component id="btCadastrarCondomino" max="32767" attributes="0"/>
+                  <Component id="btGerenciarFuncionario" max="32767" attributes="0"/>
+                  <Component id="btGerenciarCondomino" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="111" max="32767" attributes="0"/>
           </Group>
@@ -56,9 +56,9 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="bRegistrarEmpressas" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btCadastrarFuncionario" min="-2" max="-2" attributes="0"/>
+              <Component id="btGerenciarFuncionario" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btCadastrarCondomino" min="-2" max="-2" attributes="0"/>
+              <Component id="btGerenciarCondomino" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="26" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -95,15 +95,18 @@
         <Property name="text" type="java.lang.String" value="Registrar Empresas"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btCadastrarFuncionario">
+    <Component class="javax.swing.JButton" name="btGerenciarFuncionario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cadastrar Funcionario"/>
+        <Property name="text" type="java.lang.String" value="Gerenciar Funcionario"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btCadastrarCondomino">
+    <Component class="javax.swing.JButton" name="btGerenciarCondomino">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cadastrar Cond&#xf4;mino"/>
+        <Property name="text" type="java.lang.String" value="Gerenciar Cond&#xf4;mino"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btGerenciarCondominoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
