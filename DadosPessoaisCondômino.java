@@ -192,20 +192,13 @@ public class DadosPessoaisCondômino extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
         index = Conexao.getConexao().achaCondominoCpf(CondoWare.getCpf());
-        cxNome.setEnabled(false);
-        cxNome.setName(Bancos.getBancos().getBdCondomino().get(index-1).getNome());
-        cxCPF.setEnabled(false);
-        cxCPF.setName(Bancos.getBancos().getBdCondomino().get(index-1).getCpf());
-        cxEmail.setEnabled(false);
-        cxEmail.setName(Bancos.getBancos().getBdCondomino().get(index-1).getEmail());
-        cxSenha.setEnabled(false);
-        cxSenha.setName(Bancos.getBancos().getBdCondomino().get(index-1).getSenha());
-        cxBloco.setEnabled(false);
-        cxBloco.setName(Integer.toString(Bancos.getBancos().getBdCondomino().get(index-1).getBloco()));
-        cxAp.setEnabled(false);
-        cxAp.setName(Integer.toString(Bancos.getBancos().getBdCondomino().get(index-1).getApartamento()));
-        cxPlaca.setEnabled(false);   
-        cxPlaca.setName(Bancos.getBancos().getBdCondomino().get(index).getVeiculo().getPlaca());
+        cxNome.setText(Bancos.getBancos().getBdCondomino().get(index).getNome());
+        cxCPF.setText(Bancos.getBancos().getBdCondomino().get(index).getCpf());
+        cxEmail.setText(Bancos.getBancos().getBdCondomino().get(index).getEmail());
+        cxSenha.setText(Bancos.getBancos().getBdCondomino().get(index).getSenha());
+        cxBloco.setText(Integer.toString(Bancos.getBancos().getBdCondomino().get(index).getBloco()));
+        cxAp.setText(Integer.toString(Bancos.getBancos().getBdCondomino().get(index).getApartamento()));  
+        cxPlaca.setText(Bancos.getBancos().getBdCondomino().get(index).getVeiculo().getPlaca());
         desativarCaixas(); 
     }//GEN-LAST:event_formWindowActivated
 

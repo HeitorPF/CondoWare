@@ -25,6 +25,8 @@ public class DadosPessoaisFuncionarios extends javax.swing.JFrame {
         }
         return dadosPessoaisFuncUnic;
     }
+    
+    private int index = 0;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -186,6 +188,14 @@ public class DadosPessoaisFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        index = Conexao.getConexao().achaFuncionarioCpf(CondoWare.getCpf());
+        cxNome.setText(Bancos.getBancos().getBdFuncionario().get(index).getNome());
+        cxCPF.setText(Bancos.getBancos().getBdFuncionario().get(index).getCpf());
+        cxEmail.setText(Bancos.getBancos().getBdFuncionario().get(index).getEmail());
+        cxSenha.setText(Bancos.getBancos().getBdFuncionario().get(index).getSenha());
+        cxSalario.setText(Float.toString(Bancos.getBancos().getBdFuncionario().get(index).getSalario()));
+        cxCargo.setText(Bancos.getBancos().getBdFuncionario().get(index).getCargo());
+        cxPlaca.setText(Bancos.getBancos().getBdFuncionario().get(index).getVeiculo().getPlaca());
         desativarCaixas();
     }//GEN-LAST:event_formWindowActivated
 
