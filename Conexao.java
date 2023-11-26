@@ -38,4 +38,22 @@ public class Conexao {
         }
 
     }
+    
+    
+    //------------------------------------------------------
+    
+    public int verificaCargo(String email) {
+        int resultado = 0;
+        String stringSql = "SELECT desc_pessoa('" + email + "')";
+        try{
+            Statement stm = con.createStatement();
+            ResultSet rs = stm.executeQuery(stringSql);
+            rs.next();
+            resultado = rs.getInt("desc_pessoa");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(resultado);
+        return resultado;
+    }
 }

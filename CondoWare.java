@@ -39,6 +39,12 @@ public class CondoWare extends javax.swing.JFrame {
 
         rotSenha.setText("Senha:");
 
+        cxEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cxEmailActionPerformed(evt);
+            }
+        });
+
         btEntrar.setText("Entrar");
         btEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,6 +54,7 @@ public class CondoWare extends javax.swing.JFrame {
 
         rotSenhaPostgresql.setText("Senha para PostgreSql:");
 
+        cxSenhaPostgresql.setText("2H2l4a6*");
         cxSenhaPostgresql.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cxSenhaPostgresqlActionPerformed(evt);
@@ -123,8 +130,23 @@ public class CondoWare extends javax.swing.JFrame {
     }//GEN-LAST:event_cxSenhaPostgresqlActionPerformed
 
     private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
-        // TODO add your handling code here:
+        if(Conexao.getConexao().verificaCargo(cxEmail.getText()) == 0) { //não achou email
+
+        }
+        if(Conexao.getConexao().verificaCargo(cxEmail.getText()) == 1) { //síndico
+
+        }
+        if(Conexao.getConexao().verificaCargo(cxEmail.getText()) == 2) { //funcionario
+
+        }
+        if(Conexao.getConexao().verificaCargo(cxEmail.getText()) == 3) { //morador
+
+        }
     }//GEN-LAST:event_btEntrarActionPerformed
+
+    private void cxEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cxEmailActionPerformed
 
     /**
      * @param args the command line arguments
