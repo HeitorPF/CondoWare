@@ -98,7 +98,6 @@ public class Conexao {
                     morador.getVeiculo().setPlaca(placa);
                     morador.setEmail(email);
                     morador.setSenha(senha);
-                    System.out.println(nome);
                     Bancos.getBancos().getBdCondomino().add(morador);
                 }
             } catch (SQLException e) {
@@ -113,8 +112,57 @@ public class Conexao {
     
     public int achaCondominoCpf(String cpf) {
         int tamanho = 0;
-        while(tamanho <= Bancos.getBancos().getBdCondomino().size()) {
-            if(Bancos.getBancos().getBdCondomino().get(tamanho).getCpf() == cpf) {
+        while(tamanho < Bancos.getBancos().getBdCondomino().size()) {
+            if(Bancos.getBancos().getBdCondomino().get(tamanho).getCpf().equals(cpf)) {  
+                return tamanho;
+            }
+            tamanho = tamanho + 1;
+        }
+        return tamanho;
+    }
+    
+    //--------------------------------------------------------
+    
+    public ResultSet atualizaBancoFuncionario() {
+        try {
+            Statement stm = con.createStatement();
+            ResultSet rs = null;
+            rs = stm.executeQuery("SELECT * FROM relatorio_funcionarios");
+            try { // moradores
+                while (rs.next()) {
+                    Funcionario func = new Funcionario();
+
+                    String cpf = rs.getString("cpf");
+                    String nome = rs.getString("nome");
+                    Float salario = rs.getFloat("salario");
+                    String cargo = rs.getString("cargo");
+                    String placa = rs.getString("placa");
+                    String email = rs.getString("email");
+                    String senha = rs.getString("senha");
+
+                    func.setCpf(cpf);
+                    func.setNome(nome);
+                    func.setSalario(salario);
+                    func.setCargo(cargo);
+                    func.getVeiculo().setPlaca(placa);
+                    func.setEmail(email);
+                    func.setSenha(senha);;
+                    Bancos.getBancos().getBdFuncionario().add(func);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return rs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public int achaFuncionarioCpf(String cpf) {
+        int tamanho = 0;
+        while (tamanho < Bancos.getBancos().getBdFuncionario().size()) {
+            if (Bancos.getBancos().getBdFuncionario().get(tamanho).getCpf().equals(cpf)) {
                 return tamanho;
             }
             tamanho = tamanho + 1;
@@ -123,6 +171,9 @@ public class Conexao {
     }
     
 }
+
+
+    
 
 //------------------------------------------------------
 

@@ -140,6 +140,7 @@ public class TelaDoFuncionario extends javax.swing.JFrame {
 
     private void btDadosPessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDadosPessoaisActionPerformed
         DadosPessoaisFuncionarios.getDadosPessoaisFuncUnic().setVisible(true);
+        Conexao.getConexao().atualizaBancoFuncionario();
     }//GEN-LAST:event_btDadosPessoaisActionPerformed
 
     private void btGerenciarEspaçosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerenciarEspaçosActionPerformed

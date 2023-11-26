@@ -4,6 +4,8 @@ public class Funcionario extends Pessoa {
     private Float salario;
     private String cargo;
     
+    private Veiculo veiculo = new Veiculo();
+    
     public Float getSalario() {
         return salario;
     }
@@ -18,6 +20,14 @@ public class Funcionario extends Pessoa {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
     }
     
 }
