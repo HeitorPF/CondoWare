@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package condoware.CondoWare;
 
 /**
@@ -10,14 +6,14 @@ package condoware.CondoWare;
  */
 public class CondoWare extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
+    
     public CondoWare() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
+    
+    private static String senhaPostgreSql = "";
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,9 +43,18 @@ public class CondoWare extends javax.swing.JFrame {
 
         rotSenhaPostgresql.setText("Senha para PostgreSql:");
 
-        cxSenhaPostgresql.setText("jPasswordField1");
+        cxSenhaPostgresql.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cxSenhaPostgresqlActionPerformed(evt);
+            }
+        });
 
         btConectar.setText("Conectar");
+        btConectar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConectarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,6 +108,15 @@ public class CondoWare extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConectarActionPerformed
+        senhaPostgreSql = cxSenhaPostgresql.getText();
+        Conexao.getConexao();
+    }//GEN-LAST:event_btConectarActionPerformed
+
+    private void cxSenhaPostgresqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxSenhaPostgresqlActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cxSenhaPostgresqlActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -149,4 +163,12 @@ public class CondoWare extends javax.swing.JFrame {
     private javax.swing.JLabel rotSenha;
     private javax.swing.JLabel rotSenhaPostgresql;
     // End of variables declaration//GEN-END:variables
+
+    public static String getSenhaPostgreSql() {
+        return senhaPostgreSql;
+    }
+
+    public static void setSenhaPostgreSql(String senhaPostgreSql) {
+        CondoWare.senhaPostgreSql = senhaPostgreSql;
+    }
 }

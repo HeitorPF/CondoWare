@@ -108,14 +108,17 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="cxSenhaPostgresql">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cxSenhaPostgresqlActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btConectar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Conectar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConectarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

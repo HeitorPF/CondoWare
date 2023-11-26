@@ -11,11 +11,11 @@ public class Conexao {
     
     private String url;
     private String usuario;
-    private  static String senha;
+    private  static String senha = CondoWare.getSenhaPostgreSql();
     private Connection con;
     private static Conexao conUnico;
     
-    private static Conexao getConexao() {
+    public static Conexao getConexao() {
         if(conUnico == null) {
             conUnico = new Conexao(senha);
         }
@@ -23,7 +23,7 @@ public class Conexao {
     }
     
     private Conexao(String senha) {
-        url = "jdbc:postgresql://localhost:5432/Sapaiada";
+        url = "jdbc:postgresql://localhost:5432/CondoWare";
         usuario = "postgres";
 
         try {
@@ -33,6 +33,8 @@ public class Conexao {
                     "Sucesso", 1);
         } catch (Exception e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Conexão não realizada",
+                    "Sucesso", 1);
         }
 
     }
