@@ -2,17 +2,17 @@ package condoware.CondoWare;
 
 public abstract class Pessoa {
     private String nome;
-    private int cpf;
+    private String cpf;
     private String email;
     private String senha;
     private int idCondominio;
     
     public Pessoa() {
         nome = "";
-        cpf = 0;
+        cpf = "";
     }
     
-    public Pessoa(String nome, int cpf) {
+    public Pessoa(String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
     }
@@ -25,11 +25,11 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
     
