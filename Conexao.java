@@ -196,6 +196,17 @@ public class Conexao {
         return 1;
     }
     
+    public int editFuncionario(String nome, String email, String senha, String placa, String cpf) {
+        int res = 0;
+        try {
+            Statement stm = con.createStatement();
+            res = stm.executeUpdate("UPDATE relatorio_funcionarios SET nome = '"+ nome + "', email = '" + email + "', senha = '" + senha + "', placa = '" + placa + "' WHERE cpf = " + cpf);
+        } catch (SQLException e) {
+            return 0;
+        }
+        return 1;
+    }
+    
 }
 
 

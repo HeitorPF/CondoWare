@@ -204,6 +204,8 @@ public class DadosPessoaisFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btEditarActionPerformed
 
     private void btSalvarMudançasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarMudançasActionPerformed
+        Conexao.getConexao().editFuncionario(cxNome.getText(), cxEmail.getText(), cxSenha.getText(),cxPlaca.getText(), cxCPF.getText());
+        System.out.println(cxNome.getText());
         desativarCaixas();
     }//GEN-LAST:event_btSalvarMudançasActionPerformed
 
