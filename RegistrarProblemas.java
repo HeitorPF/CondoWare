@@ -49,11 +49,6 @@ public class RegistrarProblemas extends javax.swing.JFrame {
 
         txtDesc.setColumns(20);
         txtDesc.setRows(5);
-        txtDesc.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                txtDescPropertyChange(evt);
-            }
-        });
         jScrollPane1.setViewportView(txtDesc);
 
         rotDescriçao.setText("Descrição do Problema:");
@@ -154,10 +149,6 @@ public class RegistrarProblemas extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btEnviarActionPerformed
-
-    private void txtDescPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtDescPropertyChange
-        System.out.println("mudo");
-    }//GEN-LAST:event_txtDescPropertyChange
 
     /**
      * @param args the command line arguments
