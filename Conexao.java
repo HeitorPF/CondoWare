@@ -72,6 +72,20 @@ public class Conexao {
         return cpf;
     }
     
+    public String buscaSenha(String email) {
+        String senha = "";
+        String stringSql = "SELECT senha FROM pessoa WHERE email = '" + email + "'";
+        try {
+            Statement stm = con.createStatement();
+            ResultSet rs = stm.executeQuery(stringSql);
+            rs.next();
+            senha = rs.getString("senha");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return senha;
+    }
+    
     //--------------------------------------------------------- // relacionado aos Condôminos
     
     public ResultSet atualizaBancoCondomino() {
@@ -251,10 +265,29 @@ public class Conexao {
         return 1;
     }
     
-}
-
-
+    //------------------------------------------------------ // Registrar problemas
     
-
-//------------------------------------------------------
+    public int registrarProblemas(String cpf, String desc, int bloco) {
+        String sql = "INSERT INTO Reg_Problemas values (" + cpf + ", '" + desc + "', " + bloco + ", CURRENT_TIMESTAMP)";
+        return registraProb(sql);
+    }
+    
+    public int registrarProblemas(String cpf, String desc) {
+        String sql = "INSERT INTO Reg_Problemas values (" + cpf + ", '" + desc + "', null, CURRENT_TIMESTAMP)";
+        return registraProb(sql); 
+    }
+    
+    public int registraProb(String sql) {
+        int res = 0;
+        System.out.println(sql);
+        try {
+            Statement stm = con.createStatement();
+            res = stm.executeUpdate(sql);
+            return 1;
+        } catch (SQLException e) {
+            return 0;
+        }
+    }
+    
+}
 
