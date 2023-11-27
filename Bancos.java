@@ -12,6 +12,7 @@ public class Bancos {
     static List<AreaDeLazer> bdAreaDeLazer;
     static List<Veiculo> bdVeiculo;
     static List<Apartamento> bdApartamento;
+    static List<Visitante> bdVisitante;
     
     private Bancos() {
         bdCondominio = new ArrayList<>();
@@ -20,6 +21,7 @@ public class Bancos {
         bdAreaDeLazer = new ArrayList<>();
         bdVeiculo = new ArrayList<>();
         bdApartamento = new ArrayList<>();
+        bdVisitante = new ArrayList<>();
     }
     
     public static Bancos getBancos() {
@@ -46,6 +48,9 @@ public class Bancos {
     }
     public List<Apartamento> getBdApartamento(){
         return bdApartamento;
+    }
+    public List<Visitante> getBdVisitante(){
+        return bdVisitante;
     }
     
     
@@ -77,5 +82,10 @@ public class Bancos {
     public Apartamento addApartamento(Apartamento apartamento) {
         bdApartamento.add(apartamento);
         return apartamento;
+    }
+    
+    public Visitante addVisitante(Visitante visitante) {
+        bdVisitante.add(visitante);
+        return visitante;
     }
 }
