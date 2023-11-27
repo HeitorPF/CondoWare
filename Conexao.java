@@ -320,6 +320,38 @@ public class Conexao {
     
     //-------------------------------------------------Visitantes
     
+    public ResultSet atualizaBancoVisitante() {
+        try {
+            Statement stm = con.createStatement();
+            ResultSet rs = null;
+            rs = stm.executeQuery("SELECT * FROM Visita");
+            try { // moradores
+                while (rs.next()) {
+                    Visitante visitante = new Visitante();
+
+                    String nomeVisitante = rs.getString("nome");
+                    int blocoVisitado = rs.getInt("bloco_vis");
+                    int apVisitado = rs.getInt("apartamento_vis");
+                    String entrada = rs.getString("entrada");
+                    String saida = rs.getString("saida");
+
+                    visitante.setNomeVisitante(nomeVisitante);
+                    visitante.setBlocoVisitado(blocoVisitado);
+                    visitante.setApVisitado(apVisitado);
+                    visitante.setEntrada(entrada);
+                    visitante.setSaida(saida);
+                    Bancos.getBancos().getBdVisitante().add(visitante);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return rs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
     public int registraEntradaVisitante(String nome, int bloco, int apartamento) {
         String sql = "INSERT INTO Visita VALUES ('" + nome + "', " + bloco + ", " + apartamento + ", CURRENT_TIMESTAMP, null)";
         System.out.println(sql);
@@ -347,8 +379,14 @@ public class Conexao {
     //---------------------------------------------Empresas
         
     public int addEmpresasParceiras(String nome, String contato, String responsavel) {
-        String sql = "INSERT INTO Emp_Contrat";
-        return 0;
+        String sql = "INSERT INTO Emp_Contrat values ('"+nome+"', '"+contato+"', '"+responsavel+"')";
+        try{
+            Statement stm = con.createStatement();
+            stm.executeUpdate(sql);
+            return 1;
+        } catch (SQLException e) {
+            return 0;
+        }
     }
     
 }
