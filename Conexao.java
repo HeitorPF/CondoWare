@@ -344,5 +344,12 @@ public class Conexao {
         
     }
     
+    //---------------------------------------------Empresas
+        
+    public int addEmpresasParceiras(String nome, String contato, String responsavel) {
+        String sql = "INSERT INTO Emp_Contrat";
+        return 0;
+    }
+    
 }
 
