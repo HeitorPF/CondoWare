@@ -25,18 +25,13 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="103" alignment="1" groupAlignment="1" attributes="0">
-                      <Component id="btEditar" alignment="1" min="-2" pref="81" max="-2" attributes="0"/>
-                      <Component id="btAdicionar" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btVoltar" alignment="1" max="32767" attributes="0"/>
-                      <Component id="btDeletar" alignment="1" min="-2" pref="81" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="btAdicionar" max="32767" attributes="0"/>
+                  <Component id="btEditarApagar" max="32767" attributes="0"/>
+                  <Component id="btVoltar" alignment="1" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="126" max="32767" attributes="0"/>
+              <EmptySpace pref="112" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -46,12 +41,10 @@
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Component id="btAdicionar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btEditar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btDeletar" min="-2" max="-2" attributes="0"/>
+              <Component id="btEditarApagar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btVoltar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace pref="47" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -61,16 +54,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Adicionar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAdicionarActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btEditar">
+    <Component class="javax.swing.JButton" name="btEditarApagar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Editar"/>
+        <Property name="text" type="java.lang.String" value="Editar/Apagar"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btDeletar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Deletar"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btEditarApagarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btVoltar">
       <Properties>
