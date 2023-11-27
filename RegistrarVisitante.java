@@ -185,6 +185,7 @@ public class RegistrarVisitante extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btRegistroEntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistroEntActionPerformed
+
         int res = Conexao.getConexao().registraEntradaVisitante(cxNome.getText(), Integer.parseInt(cxBloco.getText()), Integer.parseInt(cxApartamento.getText()));;
         if(res == 1) {
             JOptionPane.showMessageDialog(
@@ -225,10 +226,8 @@ public class RegistrarVisitante extends javax.swing.JFrame {
                         0);
         }
     }//GEN-LAST:event_btRegistroSaidaActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
+        
+                                              
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
