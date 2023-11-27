@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package condoware.CondoWare;
 
-/**
- *
- * @author joaop
- */
 public class GerenciarPortão extends javax.swing.JFrame {
 
     /**

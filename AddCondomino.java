@@ -4,6 +4,8 @@
  */
 package condoware.CondoWare;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author joaop
@@ -188,7 +190,18 @@ public class AddCondomino extends javax.swing.JFrame {
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         int addCondomino = Conexao.getConexao().addCondomino(cxCPF.getText(), cxNome.getText(), Integer.parseInt(cxBloco.getText()), Integer.parseInt(cxAp.getText()), cxPlaca.getText(), cxEmail.getText(), cxSenha.getText());
         if(addCondomino == 1) {
-            System.out.println("deu bom");
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Condômino adicionado com sucesso!",
+                        "Adicionado",
+                        1);
+        }
+        else {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Erro ao adicionar condômino",
+                        "Erro",
+                        0);
         }
     }//GEN-LAST:event_btCadastrarActionPerformed
 
