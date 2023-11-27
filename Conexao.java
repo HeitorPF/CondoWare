@@ -148,17 +148,48 @@ public class Conexao {
         return 1;
     }
     
-    public int editCondomino(String cpf, String nome, int bloco, int apartamento, String placa ,String email, String senha){
+    public int editCondomino(String cpf, String nome,String placa ,String email, String senha){
         int res = 0;
-        try{
+        try {
             Statement stm = con.createStatement();
-            res = stm.executeUpdate("UPDATE relatorio_condominos "
-                    + "SET(cpf =" + cpf + ",'nome =" + nome + "','bloco =" + bloco + "','apartamento =" + apartamento + "','placa =" + placa + "','email =" + email + "','senha =" + senha + "') WHERE cpf =" + cpf +";");
-        } catch (Exception e) {
-            e.printStackTrace();
+            res = stm.executeUpdate("UPDATE relatorio_condominos SET nome = '"+ nome + "', email = '" + email + "', senha = '" + senha + "', placa = '" + placa + "' WHERE cpf = " + cpf);
+        } catch (SQLException e) {
             return 0;
         }
         return 1;
+    }
+    
+    public ResultSet executaBuscaCondomino(String pesquisa) {
+        try {
+            Statement stm = con.createStatement();
+            ResultSet rs = null;
+            rs = stm.executeQuery("SELECT * FROM relatorio_condominos WHERE nome LIKE '"+pesquisa+"%';" );
+            try {
+                while (rs.next()) {
+                    Condomino c = new Condomino();
+                    String nome = rs.getString("nome");
+                    //String cpf = rs.getString("cpf");
+                    int bloco = rs.getInt("bloco");
+                    int apartamento = rs.getInt("apartamento");
+                    //String placa = rs.getString("placa");
+                    String email = rs.getString("email");
+                    String senha = rs.getString("senha");
+                    c.setNome(nome);
+                    //c.setCpf(cpf);
+                    c.setBloco(bloco);
+                    c.setApartamento(apartamento);
+                    //c.setEmail(email);
+                    //c.setSenha(senha);
+                    Bancos.getBancos().getBdCondomino().add(c);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return rs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
     
     //-------------------------------------------------------- //Relacionado aos Funcionarios
