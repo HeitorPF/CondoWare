@@ -81,6 +81,11 @@ public class RegistrarVisitante extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabEntradaVis);
 
         btRegistroEnt.setText("Registrar Entrada");
+        btRegistroEnt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegistroEntActionPerformed(evt);
+            }
+        });
 
         btRegistroSaida.setText("Registrar Saida");
 
@@ -171,6 +176,10 @@ public class RegistrarVisitante extends javax.swing.JFrame {
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btRegistroEntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistroEntActionPerformed
+        
+    }//GEN-LAST:event_btRegistroEntActionPerformed
 
     /**
      * @param args the command line arguments
