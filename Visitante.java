@@ -2,9 +2,9 @@ package condoware.CondoWare;
 
 public class Visitante {
     private String entrada;
-    private String blocoVisitado;
+    private int blocoVisitado;
     private String nomeVisitante;
-    private String apVisitado;
+    private int apVisitado;
     private String saida;
 
     public String getEntrada() {
@@ -15,11 +15,11 @@ public class Visitante {
         this.entrada = entrada;
     }
 
-    public String getBlocoVisitado() {
+    public int getBlocoVisitado() {
         return blocoVisitado;
     }
 
-    public void setBlocoVisitado(String blocoVisitado) {
+    public void setBlocoVisitado(int blocoVisitado) {
         this.blocoVisitado = blocoVisitado;
     }
 
@@ -31,11 +31,11 @@ public class Visitante {
         this.nomeVisitante = nomeVisitante;
     }
 
-    public String getApVisitado() {
+    public int getApVisitado() {
         return apVisitado;
     }
 
-    public void setApVisitado(String apVisitado) {
+    public void setApVisitado(int apVisitado) {
         this.apVisitado = apVisitado;
     }
 

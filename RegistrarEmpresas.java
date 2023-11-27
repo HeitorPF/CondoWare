@@ -4,6 +4,8 @@
  */
 package condoware.CondoWare;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author joaop
@@ -121,7 +123,21 @@ public class RegistrarEmpresas extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarActionPerformed
-        // TODO add your handling code here:
+        int res = Conexao.getConexao().addEmpresasParceiras(cxNome.getText(), cxContato.getText(), cxResponsavel.getText());
+        if(res == 1) {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Empresa registrada",
+                        "Empresas parceiras",
+                        1);
+        }
+        else {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Empresa não registrada",
+                        "Empresas Parceiras",
+                        0);
+        }
     }//GEN-LAST:event_btRegistrarActionPerformed
 
     /**
