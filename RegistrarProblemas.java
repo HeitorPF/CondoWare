@@ -120,7 +120,6 @@ public class RegistrarProblemas extends javax.swing.JFrame {
 
     private void btEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarActionPerformed
         if(cxBloco.getText().equals("")) {
-            System.out.println("bloco vazio");
             if(Conexao.getConexao().registrarProblemas(CondoWare.getCpf(), txtDesc.getText()) == 1) {
                 JOptionPane.showMessageDialog(
                         null,
@@ -137,7 +136,6 @@ public class RegistrarProblemas extends javax.swing.JFrame {
             }
         }
         else {
-            System.out.println("bloco tem algo");
             if(Conexao.getConexao().registrarProblemas(CondoWare.getCpf(), txtDesc.getText(), Integer.parseInt(cxBloco.getText())) == 1) {
                 JOptionPane.showMessageDialog(
                         null,

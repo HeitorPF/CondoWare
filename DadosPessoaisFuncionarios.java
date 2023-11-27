@@ -4,6 +4,8 @@
  */
 package condoware.CondoWare;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author joaop
@@ -204,7 +206,20 @@ public class DadosPessoaisFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btEditarActionPerformed
 
     private void btSalvarMudançasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarMudançasActionPerformed
-        Conexao.getConexao().editFuncionario(cxNome.getText(), cxEmail.getText(), cxSenha.getText(),cxPlaca.getText(), cxCPF.getText());
+        if(Conexao.getConexao().editFuncionario(cxNome.getText(), cxEmail.getText(), cxSenha.getText(),cxPlaca.getText(), cxCPF.getText()) == 1) {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Mudanças salvas!",
+                        "Alterar dados",
+                        1);
+        }
+        else {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Mudanças não salvas",
+                        "Alterar dados",
+                        0);
+        }
         desativarCaixas();
     }//GEN-LAST:event_btSalvarMudançasActionPerformed
 
