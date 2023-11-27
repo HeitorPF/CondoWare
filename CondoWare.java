@@ -141,7 +141,7 @@ public class CondoWare extends javax.swing.JFrame {
                         null,
                         "Email não encontrado!",
                         "Não encontrado",
-                        1);  
+                        0);  
         }
         else {
             senhaCerta = Conexao.getConexao().buscaSenha(cxEmail.getText());
@@ -167,7 +167,7 @@ public class CondoWare extends javax.swing.JFrame {
                         null,
                         "Senha incorreta",
                         "Senha incorreta",
-                        1);
+                        0);
             }
         }
     }//GEN-LAST:event_btEntrarActionPerformed

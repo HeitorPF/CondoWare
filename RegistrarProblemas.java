@@ -133,7 +133,7 @@ public class RegistrarProblemas extends javax.swing.JFrame {
                         null,
                         "Problema não enviado",
                         "Problema",
-                        1);
+                        0);
             }
         }
         else {
@@ -150,7 +150,7 @@ public class RegistrarProblemas extends javax.swing.JFrame {
                         null,
                         "Problema não enviado",
                         "Problema",
-                        1);
+                        0);
             }
         }
     }//GEN-LAST:event_btEnviarActionPerformed
