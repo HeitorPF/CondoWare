@@ -318,5 +318,38 @@ public class Conexao {
         }
     }
     
+    //-------------------------------------------------Visitantes
+    
+    public int registraEntradaVisitante(String nome, int bloco, int apartamento) {
+        String sql = "INSERT INTO Visita VALUES ('" + nome + "', " + bloco + ", " + apartamento + ", CURRENT_TIMESTAMP, null)";
+        System.out.println(sql);
+        try {
+            Statement stm = con.createStatement();
+            stm.executeUpdate(sql);
+            return 1;
+        } catch (SQLException e) {
+            return 0;
+        }
+    }
+    
+    public int registraSaidaVisitante(String nome, int bloco, int apartamento) {
+        String sql = "UPDATE Visita SET saida = CURRENT_TIMESTAMP WHERE nome = '"+nome+"', bloco_vis = "+bloco+", apartamento_vis = " + apartamento;
+        try {
+            Statement stm = con.createStatement();
+            stm.executeUpdate(sql);
+            return 1;
+        } catch (SQLException e) {
+            return 0;
+        }
+        
+    }
+    
+    //---------------------------------------------Empresas
+        
+    public int addEmpresasParceiras(String nome, String contato, String responsavel) {
+        String sql = "INSERT INTO Emp_Contrat";
+        return 0;
+    }
+    
 }
 
