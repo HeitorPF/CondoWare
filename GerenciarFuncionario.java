@@ -36,7 +36,6 @@ public class GerenciarFuncionario extends javax.swing.JFrame {
 
         btAdicionar = new javax.swing.JButton();
         btEditar = new javax.swing.JButton();
-        btApagar = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -49,17 +48,10 @@ public class GerenciarFuncionario extends javax.swing.JFrame {
             }
         });
 
-        btEditar.setText("Editar");
+        btEditar.setText("Editar/Apagar");
         btEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEditarActionPerformed(evt);
-            }
-        });
-
-        btApagar.setText("Apagar");
-        btApagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btApagarActionPerformed(evt);
             }
         });
 
@@ -77,11 +69,10 @@ public class GerenciarFuncionario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(118, 118, 118)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btApagar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btAdicionar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,10 +82,8 @@ public class GerenciarFuncionario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btEditar)
                 .addGap(18, 18, 18)
-                .addComponent(btApagar)
-                .addGap(18, 18, 18)
                 .addComponent(btVoltar)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -105,12 +94,8 @@ public class GerenciarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_btAdicionarActionPerformed
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
-        EditFuncionario.getEditFuncionarioUnic().setVisible(true);
+        RelatorioFuncionarios.getRelatorioFuncionariosUnic().setVisible(true);
     }//GEN-LAST:event_btEditarActionPerformed
-
-    private void btApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btApagarActionPerformed
-        ApagarFuncionario.getApagarFuncionarioUnic().setVisible(true);
-    }//GEN-LAST:event_btApagarActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         this.dispose();
@@ -153,7 +138,6 @@ public class GerenciarFuncionario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdicionar;
-    private javax.swing.JButton btApagar;
     private javax.swing.JButton btEditar;
     private javax.swing.JButton btVoltar;
     // End of variables declaration//GEN-END:variables

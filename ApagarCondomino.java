@@ -50,10 +50,14 @@ public class ApagarCondomino extends javax.swing.JFrame {
         cxPlaca = new javax.swing.JTextField();
         btDeletar = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
-        btMostrarDados = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Deletar Condômino");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         rotNome.setText("Nome:");
 
@@ -77,8 +81,6 @@ public class ApagarCondomino extends javax.swing.JFrame {
                 btVoltarActionPerformed(evt);
             }
         });
-
-        btMostrarDados.setText("Mostrar Dados");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,24 +125,18 @@ public class ApagarCondomino extends javax.swing.JFrame {
                                     .addGap(0, 0, Short.MAX_VALUE)
                                     .addComponent(btDeletar))))))
                 .addContainerGap(17, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btMostrarDados)
-                .addGap(95, 95, 95))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rotCPF)
-                    .addComponent(cxCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btMostrarDados)
-                .addGap(12, 12, 12)
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rotNome)
                     .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rotCPF)
+                    .addComponent(cxCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rotBloco)
@@ -165,7 +161,7 @@ public class ApagarCondomino extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btVoltar)
                     .addComponent(btDeletar))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -176,6 +172,10 @@ public class ApagarCondomino extends javax.swing.JFrame {
         limpar();
     }//GEN-LAST:event_btVoltarActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        desativarCaixas();
+    }//GEN-LAST:event_formWindowActivated
+
     public void limpar(){
         cxNome.setText("");
         cxBloco.setText("");
@@ -183,6 +183,16 @@ public class ApagarCondomino extends javax.swing.JFrame {
         cxEmail.setText("");
         cxSenha.setText("");
         cxPlaca.setText("");
+    }
+    
+    public void desativarCaixas(){
+        cxNome.setEnabled(false);
+        cxCPF.setEnabled(false);
+        cxEmail.setEnabled(false);
+        cxSenha.setEnabled(false);
+        cxBloco.setEnabled(false);
+        cxAp.setEnabled(false);
+        cxPlaca.setEnabled(false); 
     }
     /**
      * @param args the command line arguments
@@ -236,7 +246,6 @@ public class ApagarCondomino extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDeletar;
-    private javax.swing.JButton btMostrarDados;
     private javax.swing.JButton btVoltar;
     private javax.swing.JTextField cxAp;
     private javax.swing.JTextField cxBloco;
