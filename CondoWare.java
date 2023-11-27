@@ -47,6 +47,8 @@ public class CondoWare extends javax.swing.JFrame {
             }
         });
 
+        cxSenha.setText("root");
+
         btEntrar.setText("Entrar");
         btEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,7 +58,6 @@ public class CondoWare extends javax.swing.JFrame {
 
         rotSenhaPostgresql.setText("Senha para PostgreSql:");
 
-        cxSenhaPostgresql.setText("Jv102030*");
         cxSenhaPostgresql.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cxSenhaPostgresqlActionPerformed(evt);
@@ -132,23 +133,42 @@ public class CondoWare extends javax.swing.JFrame {
     }//GEN-LAST:event_cxSenhaPostgresqlActionPerformed
 
     private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
-        if(Conexao.getConexao().verificaCargo(cxEmail.getText()) == 0) { //não achou email
+        int cargo = Conexao.getConexao().verificaCargo(cxEmail.getText());
+        String senhaCerta = "";
+        if(cargo == 0) { //não achou email
             JOptionPane.showMessageDialog(
                         null,
                         "Email não encontrado!",
                         "Não encontrado",
                         1);  
         }
-        if(Conexao.getConexao().verificaCargo(cxEmail.getText()) == 1) { //síndico
-            TelaDoSindico.getTelaSindicoUnic().setVisible(true);
+        else {
+            senhaCerta = Conexao.getConexao().buscaSenha(cxEmail.getText());
+            if(senhaCerta.equals(cxSenha.getText())){
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Logado com sucesso!",
+                        "Log in",
+                        1);
+                if(cargo == 1) { //síndico
+                    TelaDoSindico.getTelaSindicoUnic().setVisible(true);
+                }
+                if(cargo == 2) { //funcionario
+                    TelaDoFuncionario.getTelaFuncUnic().setVisible(true);
+                }
+                if(cargo == 3) { //morador
+                    TelaDoCondomino.getTelaCondominoUnic().setVisible(true);
+                }
+                setCpf(Conexao.getConexao().buscaCpf(cxEmail.getText()));
+            }
+            else {
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Senha incorreta",
+                        "Senha incorreta",
+                        1);
+            }
         }
-        if(Conexao.getConexao().verificaCargo(cxEmail.getText()) == 2) { //funcionario
-            TelaDoFuncionario.getTelaFuncUnic().setVisible(true);
-        }
-        if(Conexao.getConexao().verificaCargo(cxEmail.getText()) == 3) { //morador
-            TelaDoCondomino.getTelaCondominoUnic().setVisible(true);
-        }
-        setCpf(Conexao.getConexao().buscaCpf(cxEmail.getText()));
     }//GEN-LAST:event_btEntrarActionPerformed
 
     private void cxEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxEmailActionPerformed

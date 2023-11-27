@@ -72,6 +72,20 @@ public class Conexao {
         return cpf;
     }
     
+    public String buscaSenha(String email) {
+        String senha = "";
+        String stringSql = "SELECT senha FROM pessoa WHERE email = '" + email + "'";
+        try {
+            Statement stm = con.createStatement();
+            ResultSet rs = stm.executeQuery(stringSql);
+            rs.next();
+            senha = rs.getString("senha");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return senha;
+    }
+    
     //--------------------------------------------------------- // relacionado aos Condôminos
     
     public ResultSet atualizaBancoCondomino() {
