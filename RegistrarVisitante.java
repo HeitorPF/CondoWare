@@ -185,6 +185,10 @@ public class RegistrarVisitante extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btRegistroEntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistroEntActionPerformed
+
+        
+    }//GEN-LAST:event_btRegistroEntActionPerformed
+
         int res = Conexao.getConexao().registraEntradaVisitante(cxNome.getText(), Integer.parseInt(cxBloco.getText()), Integer.parseInt(cxApartamento.getText()));;
         if(res == 1) {
             JOptionPane.showMessageDialog(
