@@ -5,6 +5,7 @@
 package condoware.CondoWare;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -52,6 +53,11 @@ public class RegistrarVisitante extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro de Visitantes");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         rotMsgEnt.setText("Entrada de Visitante");
 
@@ -185,34 +191,30 @@ public class RegistrarVisitante extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btRegistroEntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistroEntActionPerformed
-        
-    }//GEN-LAST:event_btRegistroEntActionPerformed
-
-
-        int res = Conexao.getConexao().registraEntradaVisitante(cxNome.getText(), Integer.parseInt(cxBloco.getText()), Integer.parseInt(cxApartamento.getText()));;
+       int res = Conexao.getConexao().registraEntradaVisitante(cxNome.getText(), Integer.parseInt(cxBloco.getText()), Integer.parseInt(cxApartamento.getText()));;
         if(res == 1) {
             JOptionPane.showMessageDialog(
                         null,
                         "Entrada de visitante Registrada",
                         "Visitante",
                         1);
+            listarAll();
         }
         else {
             JOptionPane.showMessageDialog(
                         null,
                         "Ocorreu um erro ao registrar entrada do visitante!",
                         "Visitante",
-                        0);
-        }
+                        0);                                       
+    }                                             
+
     }//GEN-LAST:event_btRegistroEntActionPerformed
 
     private void btRegistroSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistroSaidaActionPerformed
-        int row = tabEntradaVis.getSelectedRow();
-        
+        int row = tabEntradaVis.getSelectedRow();      
         String nome = tabEntradaVis.getValueAt(row, 0).toString();
         int bloco = (int) tabEntradaVis.getValueAt(row, 2);
-        int apartamento = (int) tabEntradaVis.getValueAt(row, 1);
-        
+        int apartamento = (int) tabEntradaVis.getValueAt(row, 1);       
         int res = Conexao.getConexao().registraSaidaVisitante(nome, bloco, apartamento);
         if(res == 1) {
             JOptionPane.showMessageDialog(
@@ -229,7 +231,24 @@ public class RegistrarVisitante extends javax.swing.JFrame {
                         0);
         }
     }//GEN-LAST:event_btRegistroSaidaActionPerformed
-        
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        listarAll();
+    }//GEN-LAST:event_formWindowActivated
+    
+    public void listarAll() {
+        Bancos.getBancos().getBdVisitante().clear();
+        Conexao.getConexao().atualizaBancoVisitante();
+        DefaultTableModel tabModel = (DefaultTableModel) tabEntradaVis.getModel();
+        int posLin = 0;
+        tabModel.setRowCount(posLin);
+        for(Visitante v: Bancos.getBancos().getBdVisitante()) {
+            tabModel.insertRow(posLin, new Object[]{v.getNomeVisitante(),
+                                                       v.getApVisitado(),
+                                                       v.getBlocoVisitado()});
+            posLin++;
+        }
+    }
                                               
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
