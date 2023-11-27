@@ -10,6 +10,8 @@ package condoware.CondoWare;
  */
 public class EditCondomino extends javax.swing.JFrame {
 
+    int ap = 0;
+    String nome = "";
     /**
      * Creates new form AddFuncionario
      */
@@ -54,6 +56,11 @@ public class EditCondomino extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Alterar Condômino");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         rotNome.setText("Nome:");
 
@@ -173,14 +180,34 @@ public class EditCondomino extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
-        this.dispose();
         limpar();
+        this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
         limpar();
     }//GEN-LAST:event_btLimparActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        mostrarDados();
+    }//GEN-LAST:event_formWindowActivated
+
+    public void receberApNome(int numAp, String name){
+        ap = numAp;
+        nome = name;
+    }
+    
+    public void mostrarDados(){
+        int index = Conexao.getConexao().achaCondominoAp(ap,nome);
+        cxNome.setText(Bancos.getBancos().getBdCondomino().get(index).getNome());
+        cxCPF.setText(Bancos.getBancos().getBdCondomino().get(index).getCpf());
+        cxEmail.setText(Bancos.getBancos().getBdCondomino().get(index).getEmail());
+        cxSenha.setText(Bancos.getBancos().getBdCondomino().get(index).getSenha());
+        cxBloco.setText(Integer.toString(Bancos.getBancos().getBdCondomino().get(index).getBloco()));
+        cxAp.setText(Integer.toString(Bancos.getBancos().getBdCondomino().get(index).getApartamento()));
+        cxPlaca.setText(Bancos.getBancos().getBdCondomino().get(index).getVeiculo().getPlaca());
+    }
+    
     public void limpar(){
         cxNome.setText("");
         cxBloco.setText("");

@@ -135,6 +135,17 @@ public class Conexao {
         return tamanho;
     }
     
+    public int achaCondominoAp(int ap , String nome){
+        int tamanho = 0;
+        while(tamanho < Bancos.getBancos().getBdCondomino().size()){
+            if(Bancos.getBancos().getBdCondomino().get(tamanho).getApartamento() == ap && Bancos.getBancos().getBdCondomino().get(tamanho).getNome().equals(nome)) {  
+                return tamanho;
+            }
+            tamanho = tamanho + 1;
+        }
+        return tamanho;          
+    }
+    
     public int addCondomino(String cpf, String nome, int bloco, int apartamento, String placa ,String email, String senha) {
         int res = 0;
         try{
