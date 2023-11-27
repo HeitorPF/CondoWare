@@ -4,6 +4,8 @@
  */
 package condoware.CondoWare;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author joaop
@@ -35,7 +37,7 @@ public class RegistrarProblemas extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtDesc = new javax.swing.JTextArea();
         rotDescriçao = new javax.swing.JLabel();
         rotBloco = new javax.swing.JLabel();
         cxBloco = new javax.swing.JTextField();
@@ -45,15 +47,25 @@ public class RegistrarProblemas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro de Problemas");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtDesc.setColumns(20);
+        txtDesc.setRows(5);
+        txtDesc.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                txtDescPropertyChange(evt);
+            }
+        });
+        jScrollPane1.setViewportView(txtDesc);
 
         rotDescriçao.setText("Descrição do Problema:");
 
         rotBloco.setText("Bloco do Problema (opcional):");
 
         btEnviar.setText("Enviar");
+        btEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEnviarActionPerformed(evt);
+            }
+        });
 
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -106,6 +118,47 @@ public class RegistrarProblemas extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
 
+    private void btEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarActionPerformed
+        if(cxBloco.getText().equals("")) {
+            System.out.println("bloco vazio");
+            if(Conexao.getConexao().registrarProblemas(CondoWare.getCpf(), txtDesc.getText()) == 1) {
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Problema enviado com sucesso",
+                        "Problema",
+                        1);
+            }
+            else {
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Problema não enviado",
+                        "Problema",
+                        1);
+            }
+        }
+        else {
+            System.out.println("bloco tem algo");
+            if(Conexao.getConexao().registrarProblemas(CondoWare.getCpf(), txtDesc.getText(), Integer.parseInt(cxBloco.getText())) == 1) {
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Problema enviado com sucesso",
+                        "Problema",
+                        1);
+            }
+            else {
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Problema não enviado",
+                        "Problema",
+                        1);
+            }
+        }
+    }//GEN-LAST:event_btEnviarActionPerformed
+
+    private void txtDescPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtDescPropertyChange
+        System.out.println("mudo");
+    }//GEN-LAST:event_txtDescPropertyChange
+
     /**
      * @param args the command line arguments
      */
@@ -146,8 +199,8 @@ public class RegistrarProblemas extends javax.swing.JFrame {
     private javax.swing.JButton btVoltar;
     private javax.swing.JTextField cxBloco;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel rotBloco;
     private javax.swing.JLabel rotDescriçao;
+    private javax.swing.JTextArea txtDesc;
     // End of variables declaration//GEN-END:variables
 }

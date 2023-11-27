@@ -58,6 +58,7 @@ public class CondoWare extends javax.swing.JFrame {
 
         rotSenhaPostgresql.setText("Senha para PostgreSql:");
 
+        cxSenhaPostgresql.setText("2H2l4a6*");
         cxSenhaPostgresql.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cxSenhaPostgresqlActionPerformed(evt);
