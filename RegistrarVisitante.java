@@ -4,6 +4,8 @@
  */
 package condoware.CondoWare;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author joaop
@@ -81,8 +83,18 @@ public class RegistrarVisitante extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabEntradaVis);
 
         btRegistroEnt.setText("Registrar Entrada");
+        btRegistroEnt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegistroEntActionPerformed(evt);
+            }
+        });
 
         btRegistroSaida.setText("Registrar Saida");
+        btRegistroSaida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegistroSaidaActionPerformed(evt);
+            }
+        });
 
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -171,6 +183,48 @@ public class RegistrarVisitante extends javax.swing.JFrame {
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btRegistroEntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistroEntActionPerformed
+        int res = Conexao.getConexao().registraEntradaVisitante(cxNome.getText(), Integer.parseInt(cxBloco.getText()), Integer.parseInt(cxApartamento.getText()));;
+        if(res == 1) {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Entrada de visitante Registrada",
+                        "Visitante",
+                        1);
+        }
+        else {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Ocorreu um erro ao registrar entrada do visitante!",
+                        "Visitante",
+                        0);
+        }
+    }//GEN-LAST:event_btRegistroEntActionPerformed
+
+    private void btRegistroSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistroSaidaActionPerformed
+        int row = tabEntradaVis.getSelectedRow();
+        
+        String nome = tabEntradaVis.getValueAt(row, 0).toString();
+        int bloco = (int) tabEntradaVis.getValueAt(row, 2);
+        int apartamento = (int) tabEntradaVis.getValueAt(row, 1);
+        
+        int res = Conexao.getConexao().registraSaidaVisitante(nome, bloco, apartamento);
+        if(res == 1) {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Saída do visitante registrado com sucesso",
+                        "Visitante",
+                        0);
+        }
+        else {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Ocorreu um erro ao registrar saída do visitante!",
+                        "Visitante",
+                        0);
+        }
+    }//GEN-LAST:event_btRegistroSaidaActionPerformed
 
     /**
      * @param args the command line arguments
