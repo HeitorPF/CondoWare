@@ -163,8 +163,11 @@ public class RelatorioCondôminos extends javax.swing.JFrame {
                     "Atenção!!",
                     1);
         }
-        else
-        EditCondomino.getEditCondominoUnic().setVisible(true);
+        else{
+            int row = tabCondominos.getSelectedRow();
+            EditCondomino.getEditCondominoUnic().receberApNome((int) tabCondominos.getValueAt(row,2),tabCondominos.getValueAt(row,0).toString());
+            EditCondomino.getEditCondominoUnic().setVisible(true);
+        }       
     }//GEN-LAST:event_btEditarActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
@@ -179,8 +182,11 @@ public class RelatorioCondôminos extends javax.swing.JFrame {
                     "Atenção!!",
                     1);
         }
-        else
-        ApagarCondomino.getEditCondominoUnic().setVisible(true);
+        else{
+            int row = tabCondominos.getSelectedRow();
+            ApagarCondomino.getApagarCondominoUnic().receberApNome((int) tabCondominos.getValueAt(row,2),tabCondominos.getValueAt(row,0).toString());
+            ApagarCondomino.getApagarCondominoUnic().setVisible(true);
+        }
     }//GEN-LAST:event_btApagarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated

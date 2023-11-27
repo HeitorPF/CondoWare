@@ -10,6 +10,8 @@ package condoware.CondoWare;
  */
 public class ApagarCondomino extends javax.swing.JFrame {
 
+    int ap = 0;
+    String nome = "";
     /**
      * Creates new form AddFuncionario
      */
@@ -18,12 +20,12 @@ public class ApagarCondomino extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
-    private static ApagarCondomino editCondominoUnic;
-    public static ApagarCondomino getEditCondominoUnic() {
-        if (editCondominoUnic == null) {
-            editCondominoUnic = new ApagarCondomino();
+    private static ApagarCondomino apagarCondominoUnic;
+    public static ApagarCondomino getApagarCondominoUnic() {
+        if (apagarCondominoUnic == null) {
+            apagarCondominoUnic= new ApagarCondomino();
         }
-        return editCondominoUnic;
+        return apagarCondominoUnic;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -174,8 +176,25 @@ public class ApagarCondomino extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         desativarCaixas();
+        mostrarDados();
     }//GEN-LAST:event_formWindowActivated
 
+    public void receberApNome(int numAp, String name){
+        ap = numAp;
+        nome = name;
+    }
+    
+    public void mostrarDados(){
+        int index = Conexao.getConexao().achaCondominoAp(ap,nome);
+        cxNome.setText(Bancos.getBancos().getBdCondomino().get(index).getNome());
+        cxCPF.setText(Bancos.getBancos().getBdCondomino().get(index).getCpf());
+        cxEmail.setText(Bancos.getBancos().getBdCondomino().get(index).getEmail());
+        cxSenha.setText(Bancos.getBancos().getBdCondomino().get(index).getSenha());
+        cxBloco.setText(Integer.toString(Bancos.getBancos().getBdCondomino().get(index).getBloco()));
+        cxAp.setText(Integer.toString(Bancos.getBancos().getBdCondomino().get(index).getApartamento()));
+        cxPlaca.setText(Bancos.getBancos().getBdCondomino().get(index).getVeiculo().getPlaca());
+    }
+    
     public void limpar(){
         cxNome.setText("");
         cxBloco.setText("");
