@@ -5,6 +5,7 @@
 package condoware.CondoWare;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -48,6 +49,11 @@ public class RelatorioFuncionarios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tabela de Funcionarios");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         rotNome.setText("Nome:");
 
@@ -62,6 +68,11 @@ public class RelatorioFuncionarios extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabFuncionarios);
 
         btBuscar.setText("Buscar");
+        btBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBuscarActionPerformed(evt);
+            }
+        });
 
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +82,11 @@ public class RelatorioFuncionarios extends javax.swing.JFrame {
         });
 
         btMostrarTodos.setText("Mostrar Todos");
+        btMostrarTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btMostrarTodosActionPerformed(evt);
+            }
+        });
 
         btEditar.setText("Editar");
         btEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -163,6 +179,45 @@ public class RelatorioFuncionarios extends javax.swing.JFrame {
         ApagarFuncionario.getApagarFuncionarioUnic().setVisible(true);
     }//GEN-LAST:event_btApagarActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        listarAll();
+    }//GEN-LAST:event_formWindowActivated
+
+    private void btMostrarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMostrarTodosActionPerformed
+        listarAll();
+    }//GEN-LAST:event_btMostrarTodosActionPerformed
+
+    private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
+        listarBusca();
+    }//GEN-LAST:event_btBuscarActionPerformed
+
+    public void listarBusca() {
+        Bancos.getBancos().getBdFuncionario().clear();
+        Conexao.getConexao().executaBuscaFuncionario(cxNome.getText());
+        DefaultTableModel tabModel = (DefaultTableModel) tabFuncionarios.getModel();
+        int posLin = 0;
+        tabModel.setRowCount(posLin);
+        for(Funcionario f : Bancos.getBancos().getBdFuncionario()) {
+            tabModel.insertRow(posLin, new Object[]{f.getNome(),
+                                                       f.getCargo(),
+                                                       f.getSalario()});
+            posLin++;
+        }
+    }
+    
+    public void listarAll() {
+        Bancos.getBancos().getBdFuncionario().clear();
+        Conexao.getConexao().atualizaBancoFuncionario();
+        DefaultTableModel tabModel = (DefaultTableModel) tabFuncionarios.getModel();
+        int posLin = 0;
+        tabModel.setRowCount(posLin);
+        for(Funcionario f : Bancos.getBancos().getBdFuncionario()) {
+            tabModel.insertRow(posLin, new Object[]{f.getNome(),
+                                                       f.getCargo(),
+                                                       f.getSalario()});
+            posLin++;
+        }
+    }
     /**
      * @param args the command line arguments
      */

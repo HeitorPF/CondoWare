@@ -168,18 +168,11 @@ public class Conexao {
                 while (rs.next()) {
                     Condomino c = new Condomino();
                     String nome = rs.getString("nome");
-                    //String cpf = rs.getString("cpf");
                     int bloco = rs.getInt("bloco");
                     int apartamento = rs.getInt("apartamento");
-                    //String placa = rs.getString("placa");
-                    String email = rs.getString("email");
-                    String senha = rs.getString("senha");
                     c.setNome(nome);
-                    //c.setCpf(cpf);
                     c.setBloco(bloco);
                     c.setApartamento(apartamento);
-                    //c.setEmail(email);
-                    //c.setSenha(senha);
                     Bancos.getBancos().getBdCondomino().add(c);
                 }
             } catch (SQLException e) {
@@ -239,6 +232,32 @@ public class Conexao {
             tamanho = tamanho + 1;
         }
         return tamanho;
+    }
+    
+    public ResultSet executaBuscaFuncionario(String pesquisa) {
+        try {
+            Statement stm = con.createStatement();
+            ResultSet rs = null;
+            rs = stm.executeQuery("SELECT * FROM relatorio_funcionarios WHERE nome LIKE '"+pesquisa+"%';" );
+            try {
+                while (rs.next()) {
+                    Funcionario f = new Funcionario();
+                    String nome = rs.getString("nome");
+                    String cargo = rs.getString("cargo");
+                    float salario = rs.getFloat("salario");
+                    f.setNome(nome);
+                    f.setCargo(cargo);
+                    f.setSalario(salario);
+                    Bancos.getBancos().getBdFuncionario().add(f);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return rs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
     
     public int addFuncionario(String cpf, String nome, Float salario, String cargo, String email, String senha, String placa) {
