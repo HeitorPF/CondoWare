@@ -35,18 +35,25 @@ public class GerenciarEspaços extends javax.swing.JFrame {
     private void initComponents() {
 
         btAdicionar = new javax.swing.JButton();
-        btEditar = new javax.swing.JButton();
-        btDeletar = new javax.swing.JButton();
+        btEditarApagar = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gerenciar Areas de Lazer");
 
         btAdicionar.setText("Adicionar");
+        btAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdicionarActionPerformed(evt);
+            }
+        });
 
-        btEditar.setText("Editar");
-
-        btDeletar.setText("Deletar");
+        btEditarApagar.setText("Editar/Apagar");
+        btEditarApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEditarApagarActionPerformed(evt);
+            }
+        });
 
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -60,15 +67,12 @@ public class GerenciarEspaços extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btAdicionar, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btVoltar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btDeletar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addGap(109, 109, 109)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btEditarApagar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,12 +80,10 @@ public class GerenciarEspaços extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(btAdicionar)
                 .addGap(18, 18, 18)
-                .addComponent(btEditar)
-                .addGap(18, 18, 18)
-                .addComponent(btDeletar)
+                .addComponent(btEditarApagar)
                 .addGap(18, 18, 18)
                 .addComponent(btVoltar)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
@@ -90,6 +92,14 @@ public class GerenciarEspaços extends javax.swing.JFrame {
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
+        AddLazer.getAddLazerUnic().setVisible(true);
+    }//GEN-LAST:event_btAdicionarActionPerformed
+
+    private void btEditarApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarApagarActionPerformed
+        RelatorioLazer.getRelatorioLazerUnic().setVisible(true);
+    }//GEN-LAST:event_btEditarApagarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,8 +138,7 @@ public class GerenciarEspaços extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdicionar;
-    private javax.swing.JButton btDeletar;
-    private javax.swing.JButton btEditar;
+    private javax.swing.JButton btEditarApagar;
     private javax.swing.JButton btVoltar;
     // End of variables declaration//GEN-END:variables
 }
