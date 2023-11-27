@@ -1,5 +1,7 @@
 package condoware.CondoWare;
 
+import javax.swing.JOptionPane;
+
 public class DadosPessoaisCondômino extends javax.swing.JFrame {
 
     /**
@@ -209,8 +211,20 @@ public class DadosPessoaisCondômino extends javax.swing.JFrame {
     private void btSalvarMudançasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarMudançasActionPerformed
         desativarCaixas();
         int editCondomino = Conexao.getConexao().editCondomino(cxCPF.getText(), cxNome.getText(),cxPlaca.getText(), cxEmail.getText(), cxSenha.getText());
-        if(editCondomino == 1)
-            System.out.println("deu bom");
+        if(editCondomino == 1){
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Dados alterados com sucesso!",
+                        "Alterado",
+                        1);
+        }
+        else {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Erro na alteração de dados!",
+                        "Erro!",
+                        0);
+        }
     }//GEN-LAST:event_btSalvarMudançasActionPerformed
 
     /**

@@ -46,14 +46,14 @@ public class RegistrarProblemas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro de Problemas");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         txtDesc.setColumns(20);
         txtDesc.setRows(5);
-        txtDesc.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                txtDescPropertyChange(evt);
-            }
-        });
         jScrollPane1.setViewportView(txtDesc);
 
         rotDescriçao.setText("Descrição do Problema:");
@@ -133,7 +133,7 @@ public class RegistrarProblemas extends javax.swing.JFrame {
                         null,
                         "Problema não enviado",
                         "Problema",
-                        1);
+                        0);
             }
         }
         else {
@@ -150,14 +150,15 @@ public class RegistrarProblemas extends javax.swing.JFrame {
                         null,
                         "Problema não enviado",
                         "Problema",
-                        1);
+                        0);
             }
         }
     }//GEN-LAST:event_btEnviarActionPerformed
 
-    private void txtDescPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtDescPropertyChange
-        System.out.println("mudo");
-    }//GEN-LAST:event_txtDescPropertyChange
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        txtDesc.setText("");
+        cxBloco.setText("");
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
