@@ -72,7 +72,7 @@ public class Conexao {
         return cpf;
     }
     
-    //---------------------------------------------------------
+    //--------------------------------------------------------- // relacionado aos Condôminos
     
     public ResultSet atualizaBancoCondomino() {
         try {
@@ -121,7 +121,7 @@ public class Conexao {
         return tamanho;
     }
     
-    //--------------------------------------------------------
+    //-------------------------------------------------------- //Relacionado aos Funcionarios
     
     public ResultSet atualizaBancoFuncionario() {
         try {
@@ -168,6 +168,19 @@ public class Conexao {
             tamanho = tamanho + 1;
         }
         return tamanho;
+    }
+    
+    public int addFuncionario(String cpf, String nome, Float salario, String cargo, String email, String senha, String placa) {
+        int res = 0;
+        try{
+            Statement stm = con.createStatement();
+            res = stm.executeUpdate("INSERT INTO relatorio_funcionarios "
+                    + "values('" + cpf + "','" + nome + "','" + salario + "','" + cargo + "','" + placa + "','" + email + "','" + senha + "')");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+        return 1;
     }
     
 }

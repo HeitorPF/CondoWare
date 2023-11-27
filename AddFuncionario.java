@@ -70,6 +70,11 @@ public class AddFuncionario extends javax.swing.JFrame {
         rotPlaca.setText("Placa do Veiculo:");
 
         btCadastrar.setText("Cadastrar");
+        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastrarActionPerformed(evt);
+            }
+        });
 
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -179,6 +184,13 @@ public class AddFuncionario extends javax.swing.JFrame {
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
         limpar();
     }//GEN-LAST:event_btLimparActionPerformed
+
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
+        int addFuncionario = Conexao.getConexao().addFuncionario(cxCPF.getText(), cxNome.getText(), Float.valueOf(cxSalario.getText()), cxCargo.getText(), cxEmail.getText(), cxSenha.getText(), cxPlaca.getText());
+        if(addFuncionario == 1){
+            System.out.println("deu bom");
+        }
+    }//GEN-LAST:event_btCadastrarActionPerformed
 
     public void limpar(){
         cxNome.setText("");
