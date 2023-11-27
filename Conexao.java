@@ -279,7 +279,6 @@ public class Conexao {
     
     public int registraProb(String sql) {
         int res = 0;
-        System.out.println(sql);
         try {
             Statement stm = con.createStatement();
             res = stm.executeUpdate(sql);

@@ -4,6 +4,8 @@
  */
 package condoware.CondoWare;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author joaop
@@ -187,8 +189,19 @@ public class AddFuncionario extends javax.swing.JFrame {
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         int addFuncionario = Conexao.getConexao().addFuncionario(cxCPF.getText(), cxNome.getText(), Float.valueOf(cxSalario.getText()), cxCargo.getText(), cxEmail.getText(), cxSenha.getText(), cxPlaca.getText());
-        if(addFuncionario == 1){
-            System.out.println("deu bom");
+        if(addFuncionario == 1) {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Funcionário adicionado com sucesso!",
+                        "Adicionado",
+                        1);
+        }
+        else {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Erro ao adicionar funcionário",
+                        "Erro",
+                        0);
         }
     }//GEN-LAST:event_btCadastrarActionPerformed
 
