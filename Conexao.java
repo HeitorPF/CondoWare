@@ -121,6 +121,19 @@ public class Conexao {
         return tamanho;
     }
     
+    public int addCondomino(String cpf, String nome, int bloco, int apartamento, String placa ,String email, String senha) {
+        int res = 0;
+        try{
+            Statement stm = con.createStatement();
+            res = stm.executeUpdate("INSERT INTO relatorio_condominos "
+                    + "values('" + cpf + "','" + nome + "','" + bloco + "','" + apartamento + "','" + placa + "','" + email + "','" + senha + "')");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+        return 1;
+    }
+    
     //-------------------------------------------------------- //Relacionado aos Funcionarios
     
     public ResultSet atualizaBancoFuncionario() {

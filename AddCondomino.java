@@ -70,6 +70,11 @@ public class AddCondomino extends javax.swing.JFrame {
         rotPlaca.setText("Placa do Veiculo:");
 
         btCadastrar.setText("Cadastrar");
+        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastrarActionPerformed(evt);
+            }
+        });
 
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -179,6 +184,13 @@ public class AddCondomino extends javax.swing.JFrame {
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
         limpar();
     }//GEN-LAST:event_btLimparActionPerformed
+
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
+        int addCondomino = Conexao.getConexao().addCondomino(cxCPF.getText(), cxNome.getText(), Integer.parseInt(cxBloco.getText()), Integer.parseInt(cxAp.getText()), cxPlaca.getText(), cxEmail.getText(), cxSenha.getText());
+        if(addCondomino == 1) {
+            System.out.println("deu bom");
+        }
+    }//GEN-LAST:event_btCadastrarActionPerformed
 
     public void limpar(){
         cxNome.setText("");
