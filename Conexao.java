@@ -134,6 +134,19 @@ public class Conexao {
         return 1;
     }
     
+    public int editCondomino(String cpf, String nome, int bloco, int apartamento, String placa ,String email, String senha){
+        int res = 0;
+        try{
+            Statement stm = con.createStatement();
+            res = stm.executeUpdate("UPDATE relatorio_condominos "
+                    + "SET(cpf =" + cpf + ",'nome =" + nome + "','bloco =" + bloco + "','apartamento =" + apartamento + "','placa =" + placa + "','email =" + email + "','senha =" + senha + "') WHERE cpf =" + cpf +";");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+        return 1;
+    }
+    
     //-------------------------------------------------------- //Relacionado aos Funcionarios
     
     public ResultSet atualizaBancoFuncionario() {

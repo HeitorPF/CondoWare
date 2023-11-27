@@ -208,6 +208,9 @@ public class DadosPessoaisCondômino extends javax.swing.JFrame {
 
     private void btSalvarMudançasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarMudançasActionPerformed
         desativarCaixas();
+        int editCondomino = Conexao.getConexao().editCondomino(cxCPF.getText(), cxNome.getText(), Integer.parseInt(cxBloco.getText()), Integer.parseInt(cxAp.getText()), cxPlaca.getText(), cxEmail.getText(), cxSenha.getText());
+        if(editCondomino == 1)
+            System.out.println("deu bom");
     }//GEN-LAST:event_btSalvarMudançasActionPerformed
 
     /**
