@@ -18,7 +18,7 @@ public class Condomino extends Pessoa {
         return apartamento;
     }
 
-    public void setApartamento(int numAp) {
+    public void setApartamento(int apartamento) {
         this.apartamento = apartamento;
     }
     

@@ -40,7 +40,7 @@ public class CondoWare extends javax.swing.JFrame {
 
         rotSenha.setText("Senha:");
 
-        cxEmail.setText("paula@gmail.com");
+        cxEmail.setText("sindico@gmail.com");
         cxEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cxEmailActionPerformed(evt);
