@@ -1,5 +1,7 @@
 package condoware.CondoWare;
 
+import javax.swing.JOptionPane;
+
 public class EditCondomino extends javax.swing.JFrame {
 
     int ap = 0;
@@ -192,6 +194,20 @@ public class EditCondomino extends javax.swing.JFrame {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         int res = Conexao.getConexao().editCondomino(cxCPF.getText(), cxNome.getText(),cxPlaca.getText(), cxEmail.getText(), cxSenha.getText(), Integer.parseInt(cxBloco.getText()), Integer.parseInt(cxAp.getText()));
+        if(res == 1) {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Alterações salvas com sucesso!",
+                        "Alterar Condômino",
+                        1);
+        }
+        else {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Erro ao salvar alterações",
+                        "Alterar condômino",
+                        0);
+        }
         receberApNome(Integer.parseInt(cxAp.getText()), cxNome.getText());
         Conexao.getConexao().atualizaBancoCondomino();
         mostrarDados();

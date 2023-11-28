@@ -4,6 +4,8 @@
  */
 package condoware.CondoWare;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author joaop
@@ -199,7 +201,21 @@ public class EditFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        Conexao.getConexao().editFuncionario(cxNome.getText(), Float.parseFloat(cxSalario.getText()), cxCargo.getText() ,cxEmail.getText(), cxSenha.getText(), cxPlaca.getText(), cxCPF.getText());
+        int res = Conexao.getConexao().editFuncionario(cxNome.getText(), Float.parseFloat(cxSalario.getText()), cxCargo.getText() ,cxEmail.getText(), cxSenha.getText(), cxPlaca.getText(), cxCPF.getText());
+        if(res == 1) {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Alterações salvas com sucesso!",
+                        "Alterar Condômino",
+                        1);
+        }
+        else {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Erro ao salvar alterações",
+                        "Alterar condômino",
+                        0);
+        }
         receberNomeSal(cxNome.getText(), Float.parseFloat(cxSalario.getText()));
         Conexao.getConexao().atualizaBancoFuncionario();
         mostrarDados();
