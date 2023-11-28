@@ -233,7 +233,7 @@ public class RegistrarVisitante extends javax.swing.JFrame {
     }//GEN-LAST:event_btRegistroSaidaActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        listarAll();
+        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowActivated
     
     public void listarAll() {
