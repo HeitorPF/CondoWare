@@ -195,10 +195,11 @@ public class EditCondomino extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         mostrarDados();
+        cxCPF.setEnabled(false);
     }//GEN-LAST:event_formWindowActivated
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        // TODO add your handling code here:
+        Conexao.getConexao().atualizaBancoCondomino();
     }//GEN-LAST:event_btSalvarActionPerformed
 
     public void receberApNome(int numAp, String name){

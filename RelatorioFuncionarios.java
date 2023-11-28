@@ -183,7 +183,6 @@ public class RelatorioFuncionarios extends javax.swing.JFrame {
             ApagarFuncionario.getApagarFuncionarioUnic().receberNomeSal((String)tabFuncionarios.getValueAt(row,0),(float)tabFuncionarios.getValueAt(row,2));
             ApagarFuncionario.getApagarFuncionarioUnic().setVisible(true);
          }
-        ApagarFuncionario.getApagarFuncionarioUnic().setVisible(true);
     }//GEN-LAST:event_btApagarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
