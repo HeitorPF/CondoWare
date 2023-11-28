@@ -188,7 +188,7 @@ public class AddCondomino extends javax.swing.JFrame {
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-        int addCondomino = Conexao.getConexao().addCondomino(cxCPF.getText(), cxNome.getText(), Integer.parseInt(cxBloco.getText()), Integer.parseInt(cxAp.getText()), cxPlaca.getText(), cxEmail.getText(), cxSenha.getText());
+        int addCondomino = Conexao.getConexao().addCondomino(cxCPF.getText(), cxNome.getText(), Integer.parseInt(cxBloco.getText()), Integer.parseInt(cxAp.getText()), cxPlaca.getText(), cxEmail.getText(), cxSenha.getText());    
         if(addCondomino == 1) {
             JOptionPane.showMessageDialog(
                         null,
