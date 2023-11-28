@@ -407,7 +407,7 @@ public class Conexao {
     }
     
     public ResultSet atualizaBancoEmpresa() {
-        Bancos.getBancos().getBdEmpresa().clear();
+        Bancos.getBancos().getBdEmpresas().clear();
         try {
             Statement stm = con.createStatement();
             ResultSet rs = null;

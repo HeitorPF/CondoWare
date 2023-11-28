@@ -102,7 +102,7 @@ public class EmpresasParceiras extends javax.swing.JFrame {
 
     public void listarAll() {
         Bancos.getBancos().getBdEmpresas().clear();
-        Conexao.getConexao().atualizaBancoEmpresas();
+        Conexao.getConexao().atualizaBancoEmpresa();
         DefaultTableModel tabModel = (DefaultTableModel) tabEmpresas.getModel();
         int posLin = 0;
         tabModel.setRowCount(posLin);
