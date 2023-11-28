@@ -192,16 +192,7 @@ public class DadosPessoaisCondômino extends javax.swing.JFrame {
     }//GEN-LAST:event_cxNomeActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-
-        index = Conexao.getConexao().achaCondominoCpf(CondoWare.getCpf());
-        cxNome.setText(Bancos.getBancos().getBdCondomino().get(index).getNome());
-        cxCPF.setText(Bancos.getBancos().getBdCondomino().get(index).getCpf());
-        cxEmail.setText(Bancos.getBancos().getBdCondomino().get(index).getEmail());
-        cxSenha.setText(Bancos.getBancos().getBdCondomino().get(index).getSenha());
-        cxBloco.setText(Integer.toString(Bancos.getBancos().getBdCondomino().get(index).getBloco()));
-        cxAp.setText(Integer.toString(Bancos.getBancos().getBdCondomino().get(index).getApartamento()));  
-        cxPlaca.setText(Bancos.getBancos().getBdCondomino().get(index).getVeiculo().getPlaca());
-        desativarCaixas(); 
+        setarCaixasCond();
     }//GEN-LAST:event_formWindowActivated
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
@@ -209,7 +200,6 @@ public class DadosPessoaisCondômino extends javax.swing.JFrame {
     }//GEN-LAST:event_btEditarActionPerformed
 
     private void btSalvarMudançasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarMudançasActionPerformed
-        desativarCaixas();
         int editCondomino = Conexao.getConexao().editCondomino(cxCPF.getText(), cxNome.getText(),cxPlaca.getText(), cxEmail.getText(), cxSenha.getText());
         if(editCondomino == 1){
             JOptionPane.showMessageDialog(
@@ -225,6 +215,9 @@ public class DadosPessoaisCondômino extends javax.swing.JFrame {
                         "Erro!",
                         0);
         }
+        Conexao.getConexao().atualizaBancoCondomino();
+        setarCaixasCond();
+        desativarCaixas();
     }//GEN-LAST:event_btSalvarMudançasActionPerformed
 
     /**
@@ -278,6 +271,18 @@ public class DadosPessoaisCondômino extends javax.swing.JFrame {
         cxEmail.setEnabled(true);
         cxSenha.setEnabled(true);
         cxPlaca.setEnabled(true);
+    }
+    
+    public void setarCaixasCond(){
+        index = Conexao.getConexao().achaCondominoCpf(CondoWare.getCpf());
+        cxNome.setText(Bancos.getBancos().getBdCondomino().get(index).getNome());
+        cxCPF.setText(Bancos.getBancos().getBdCondomino().get(index).getCpf());
+        cxEmail.setText(Bancos.getBancos().getBdCondomino().get(index).getEmail());
+        cxSenha.setText(Bancos.getBancos().getBdCondomino().get(index).getSenha());
+        cxBloco.setText(Integer.toString(Bancos.getBancos().getBdCondomino().get(index).getBloco()));
+        cxAp.setText(Integer.toString(Bancos.getBancos().getBdCondomino().get(index).getApartamento()));  
+        cxPlaca.setText(Bancos.getBancos().getBdCondomino().get(index).getVeiculo().getPlaca());
+        desativarCaixas();  
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
