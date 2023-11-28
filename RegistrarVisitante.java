@@ -4,6 +4,7 @@
  */
 package condoware.CondoWare;
 
+import static java.lang.constant.ConstantDescs.NULL;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -77,13 +78,13 @@ public class RegistrarVisitante extends javax.swing.JFrame {
 
         tabEntradaVis.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nome", "Apartamento", "Bloco"
+                "Nome", "Apartamento", "Bloco", "Saida"
             }
         ));
         jScrollPane1.setViewportView(tabEntradaVis);
@@ -233,7 +234,7 @@ public class RegistrarVisitante extends javax.swing.JFrame {
     }//GEN-LAST:event_btRegistroSaidaActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // TODO add your handling code here:
+        listarAll();
     }//GEN-LAST:event_formWindowActivated
     
     public void listarAll() {
@@ -242,11 +243,15 @@ public class RegistrarVisitante extends javax.swing.JFrame {
         DefaultTableModel tabModel = (DefaultTableModel) tabEntradaVis.getModel();
         int posLin = 0;
         tabModel.setRowCount(posLin);
-        for(Visitante v: Bancos.getBancos().getBdVisitante()) {
-            tabModel.insertRow(posLin, new Object[]{v.getNomeVisitante(),
-                                                       v.getApVisitado(),
-                                                       v.getBlocoVisitado()});
-            posLin++;
+        String a = "";
+        for(int i = 0; i < Bancos.getBancos().bdVisitante.size(); i++){
+            if (a.equals(Bancos.getBancos().bdVisitante.get(i).getSaida()) == true) {
+                tabModel.insertRow(posLin, new Object[]{Bancos.getBancos().bdVisitante.get(i).getNomeVisitante(), 
+                                                           Bancos.getBancos().bdVisitante.get(i).getBlocoVisitado(), 
+                                                           Bancos.getBancos().bdVisitante.get(i).getBlocoVisitado(),
+                                                           Bancos.getBancos().bdVisitante.get(i).getSaida()}); 
+                posLin++;
+            }
         }
     }
                                               
