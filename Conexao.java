@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.sql.Timestamp;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Conexao {
     
@@ -514,7 +516,7 @@ public class Conexao {
             Statement stm = con.createStatement();
             ResultSet rs = null;
             rs = stm.executeQuery("SELECT * FROM area_lazer");
-            try { // moradores
+            try { // areas de lazer
                 while (rs.next()) {
                     AreaDeLazer area = new AreaDeLazer();
 
@@ -537,6 +539,48 @@ public class Conexao {
             e.printStackTrace();
             return null;
         }
+    }
+    // ----------------------------------------------------- Areas alugadas
+    
+    public ResultSet atualizaBancoAreasAlugadas() {
+        Bancos.getBancos().getBdAreasAlugadas().clear();
+        try {
+            Statement stm = con.createStatement();
+            ResultSet rs = null;
+            rs = stm.executeQuery("SELECT * FROM Areas_Alug");
+            try { // areas alugadas
+                while (rs.next()) {
+                    AreasAlugadas areaAlug = new AreasAlugadas();
+
+                    int id = rs.getInt("id");
+                    Date dataAlug = rs.getDate("data_aluguel");
+                    String cpfLocador = rs.getString("locador");
+
+                    areaAlug.setId(id);
+                    areaAlug.setDataAlug(dataAlug);
+                    areaAlug.setCpfLocador(cpfLocador);
+                    Bancos.getBancos().getBdAreasAlugadas().add(areaAlug);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return rs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    public int verificaDataDisp(Date data, int id) {
+        atualizaBancoAreasAlugadas();
+        for(int i = 0; i < Bancos.getBancos().getBdAreasAlugadas().size(); i++){
+            if(Bancos.getBancos().getBdAreasAlugadas().get(i).getDataAlug().equals(data) && Bancos.getBancos().getBdAreasAlugadas().get(i).getId() == id) {
+                System.out.println("ja esta alugado na data " + data);
+                return 0;
+            }
+        }
+        System.out.println("disponivel nessa data");
+        return 1;
     }
     
 }
