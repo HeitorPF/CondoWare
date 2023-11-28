@@ -50,7 +50,7 @@ public class EditFuncionario extends javax.swing.JFrame {
         cxEmail = new javax.swing.JTextField();
         cxSenha = new javax.swing.JTextField();
         cxPlaca = new javax.swing.JTextField();
-        btCadastrar = new javax.swing.JButton();
+        btSalvar = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
 
@@ -76,7 +76,12 @@ public class EditFuncionario extends javax.swing.JFrame {
 
         rotPlaca.setText("Placa do Veiculo:");
 
-        btCadastrar.setText("Salvar");
+        btSalvar.setText("Salvar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarActionPerformed(evt);
+            }
+        });
 
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +139,7 @@ public class EditFuncionario extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(btLimpar)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btCadastrar))))))
+                                    .addComponent(btSalvar))))))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -171,7 +176,7 @@ public class EditFuncionario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btVoltar)
-                    .addComponent(btCadastrar)
+                    .addComponent(btSalvar)
                     .addComponent(btLimpar))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
@@ -191,6 +196,10 @@ public class EditFuncionario extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         mostrarDados();
     }//GEN-LAST:event_formWindowActivated
+
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btSalvarActionPerformed
 
     public void receberNomeSal(String name, float sal){
         nome = name;
@@ -253,8 +262,8 @@ public class EditFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btCadastrar;
     private javax.swing.JButton btLimpar;
+    private javax.swing.JButton btSalvar;
     private javax.swing.JButton btVoltar;
     private javax.swing.JTextField cxCPF;
     private javax.swing.JTextField cxCargo;

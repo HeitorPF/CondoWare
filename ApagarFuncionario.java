@@ -220,6 +220,7 @@ public class ApagarFuncionario extends javax.swing.JFrame {
                         "Funcionário apagado com sucesso",
                         "Apagar",
                         1);
+            this.dispose();
         }
         else {
             JOptionPane.showMessageDialog(

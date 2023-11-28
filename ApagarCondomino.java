@@ -194,6 +194,7 @@ public class ApagarCondomino extends javax.swing.JFrame {
                         "Condômino apagado com sucesso",
                         "Apagar",
                         1);
+            this.dispose();
         }
         else {
             JOptionPane.showMessageDialog(
