@@ -156,7 +156,7 @@ public class Conexao {
         }
         try{
             String sql = "INSERT INTO relatorio_condominos "
-                    + "values('" + cpf + "','" + nome + "','" + bloco + "','" + apartamento + "'," + placa + ",'" + email + "','" + senha + "')";
+                    + "values(" + cpf + ",'" + nome + "'," + bloco + "," + apartamento + "," + placa + ",'" + email + "','" + senha + "')";
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
             System.out.println(sql);
