@@ -10,6 +10,8 @@ package condoware.CondoWare;
  */
 public class EditFuncionario extends javax.swing.JFrame {
 
+    String nome = "";
+    float salario = 0;
     /**
      * Creates new form AddFuncionario
      */
@@ -54,6 +56,11 @@ public class EditFuncionario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Alterar Funcionario");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         rotNome.setText("Nome:");
 
@@ -181,6 +188,26 @@ public class EditFuncionario extends javax.swing.JFrame {
         limpar();
     }//GEN-LAST:event_btLimparActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        mostrarDados();
+    }//GEN-LAST:event_formWindowActivated
+
+    public void receberNomeSal(String name, float sal){
+        nome = name;
+        salario = sal;
+    }
+    
+    public void mostrarDados(){
+        int index = Conexao.getConexao().achaFuncionarioNoSal(nome, salario);
+        cxNome.setText(Bancos.getBancos().getBdFuncionario().get(index).getNome());
+        cxCPF.setText(Bancos.getBancos().getBdFuncionario().get(index).getCpf());
+        cxEmail.setText(Bancos.getBancos().getBdFuncionario().get(index).getEmail());
+        cxSenha.setText(Bancos.getBancos().getBdFuncionario().get(index).getSenha());
+        cxCargo.setText(Bancos.getBancos().getBdFuncionario().get(index).getCargo());
+        cxSalario.setText(Float.toString(Bancos.getBancos().getBdFuncionario().get(index).getSalario()));
+        cxPlaca.setText(Bancos.getBancos().getBdFuncionario().get(index).getVeiculo().getPlaca());
+    }
+    
     public void limpar(){
         cxNome.setText("");
         cxSalario.setText("");

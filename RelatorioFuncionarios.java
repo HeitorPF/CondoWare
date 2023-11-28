@@ -159,8 +159,11 @@ public class RelatorioFuncionarios extends javax.swing.JFrame {
                     "Atenção!!",
                     1);
         }
-        else
-        EditFuncionario.getEditFuncionarioUnic().setVisible(true);
+        else{
+            int row = tabFuncionarios.getSelectedRow();
+            EditFuncionario.getEditFuncionarioUnic().receberNomeSal((String)tabFuncionarios.getValueAt(row,0),(float)tabFuncionarios.getValueAt(row,2));
+            EditFuncionario.getEditFuncionarioUnic().setVisible(true);
+        }
     }//GEN-LAST:event_btEditarActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
@@ -175,7 +178,11 @@ public class RelatorioFuncionarios extends javax.swing.JFrame {
                     "Atenção!!",
                     1);
         }
-        else
+        else{
+             int row = tabFuncionarios.getSelectedRow();
+            ApagarFuncionario.getApagarFuncionarioUnic().receberNomeSal((String)tabFuncionarios.getValueAt(row,0),(float)tabFuncionarios.getValueAt(row,2));
+            ApagarFuncionario.getApagarFuncionarioUnic().setVisible(true);
+         }
         ApagarFuncionario.getApagarFuncionarioUnic().setVisible(true);
     }//GEN-LAST:event_btApagarActionPerformed
 
