@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package condoware.CondoWare;
 
-/**
- *
- * @author joaop
- */
 public class EditCondomino extends javax.swing.JFrame {
 
     int ap = 0;
@@ -199,7 +191,10 @@ public class EditCondomino extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        int res = Conexao.getConexao().editCondomino(cxCPF.getText(), cxNome.getText(),cxPlaca.getText(), cxEmail.getText(), cxSenha.getText(), Integer.parseInt(cxBloco.getText()), Integer.parseInt(cxAp.getText()));
+        receberApNome(Integer.parseInt(cxAp.getText()), cxNome.getText());
         Conexao.getConexao().atualizaBancoCondomino();
+        mostrarDados();
     }//GEN-LAST:event_btSalvarActionPerformed
 
     public void receberApNome(int numAp, String name){

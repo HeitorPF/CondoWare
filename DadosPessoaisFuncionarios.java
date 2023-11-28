@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package condoware.CondoWare;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author joaop
- */
 public class DadosPessoaisFuncionarios extends javax.swing.JFrame {
 
     /**
@@ -198,7 +190,7 @@ public class DadosPessoaisFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btEditarActionPerformed
 
     private void btSalvarMudançasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarMudançasActionPerformed
-        int editFunc = Conexao.getConexao().editFuncionario(cxNome.getText(), cxEmail.getText(), cxSenha.getText(),cxPlaca.getText(), cxCPF.getText());
+        int editFunc = Conexao.getConexao().editFuncionario(cxNome.getText(), Float.parseFloat(cxSalario.getText()), cxCargo.getText(),cxEmail.getText(), cxSenha.getText(),cxPlaca.getText(), cxCPF.getText());
         if(editFunc == 1) {
             JOptionPane.showMessageDialog(
                         null,

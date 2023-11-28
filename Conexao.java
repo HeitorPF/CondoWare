@@ -160,7 +160,6 @@ public class Conexao {
                     + "values(" + cpf + ",'" + nome + "'," + bloco + "," + apartamento + "," + placa + ",'" + email + "','" + senha + "')";
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
-            System.out.println(sql);
         } catch (Exception e) {
             e.printStackTrace();
             return 0;
@@ -168,11 +167,11 @@ public class Conexao {
         return 1;
     }
     
-    public int editCondomino(String cpf, String nome,String placa ,String email, String senha){
+    public int editCondomino(String cpf, String nome,String placa ,String email, String senha, int bloco, int apartamento){
         int res = 0;
         try {
             Statement stm = con.createStatement();
-            res = stm.executeUpdate("UPDATE relatorio_condominos SET nome = '"+ nome + "', email = '" + email + "', senha = '" + senha + "', placa = '" + placa + "' WHERE cpf = " + cpf);
+            res = stm.executeUpdate("UPDATE relatorio_condominos SET nome = '"+ nome + "', email = '" + email + "', senha = '" + senha + "', placa = '" + placa + "', bloco = "+bloco+", apartamento = "+apartamento+" WHERE cpf = " + cpf);
         } catch (SQLException e) {
             return 0;
         }
@@ -323,11 +322,11 @@ public class Conexao {
         return 1;
     }
     
-    public int editFuncionario(String nome, String email, String senha, String placa, String cpf) {
+    public int editFuncionario(String nome, Float salario, String cargo,String email, String senha, String placa, String cpf) {
         int res = 0;
         try {
             Statement stm = con.createStatement();
-            res = stm.executeUpdate("UPDATE relatorio_funcionarios SET nome = '"+ nome + "', email = '" + email + "', senha = '" + senha + "', placa = '" + placa + "' WHERE cpf = " + cpf);
+            res = stm.executeUpdate("UPDATE relatorio_funcionarios SET nome = '"+ nome + "', salario = "+salario+", cargo = '"+cargo+"', email = '" + email + "', senha = '" + senha + "', placa = '" + placa + "' WHERE cpf = " + cpf);
         } catch (SQLException e) {
             return 0;
         }
@@ -438,7 +437,6 @@ public class Conexao {
     
     public int registraEntradaVisitante(String nome, int bloco, int apartamento) {
         String sql = "INSERT INTO Visita VALUES ('" + nome + "', " + bloco + ", " + apartamento + ", CURRENT_TIMESTAMP, null)";
-        System.out.println(sql);
         try {
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
@@ -450,7 +448,6 @@ public class Conexao {
     
     public int registraSaidaVisitante(String nome, int bloco, int apartamento) {
         String sql = "UPDATE Visita SET saida = CURRENT_TIMESTAMP WHERE nome = '"+nome+"' AND bloco_vis = "+bloco+" AND apartamento_vis = " + apartamento;
-        System.out.println(sql);
         try {
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
