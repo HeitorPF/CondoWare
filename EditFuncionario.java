@@ -195,11 +195,13 @@ public class EditFuncionario extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         mostrarDados();
+        cxCPF.setEnabled(false);
     }//GEN-LAST:event_formWindowActivated
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         Conexao.getConexao().editFuncionario(cxNome.getText(), cxEmail.getText(), cxSenha.getText(), cxPlaca.getText(), cxCPF.getText());
         receberNomeSal(cxNome.getText(), Float.parseFloat(cxSalario.getText()));
+        Conexao.getConexao().atualizaBancoFuncionario();
         mostrarDados();
     }//GEN-LAST:event_btSalvarActionPerformed
 
