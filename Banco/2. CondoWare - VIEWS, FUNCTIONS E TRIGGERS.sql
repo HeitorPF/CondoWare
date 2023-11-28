@@ -94,10 +94,21 @@ FROM Area_Lazer NATURAL JOIN Pessoa
 WHERE alugada = TRUE AND locador = cpf;
 
 --FUNÇÃO PARA ALUGAR ÁREAS DE LAZER
-CREATE OR REPLACE FUNCTION alug_area(cod INTEGER, loc BIGINT, dat DATE) RETURNS VOID AS $$
+CREATE OR REPLACE FUNCTION alug_area(cod INTEGER, dat DATE, loc BIGINT) RETURNS INTEGER AS $$
 BEGIN
-	UPDATE Area_Lazer SET alugada = TRUE, locador = loc, data_aluguel = dat WHERE id = cod;
+	IF NOT EXISTS (SELECT * FROM Areas_Alug WHERE id = cod AND data_aluguel = dat) THEN
+		UPDATE Areas_Alug SET id = cod, data_aluguel = dat, locador = loc WHERE id = cod;
+		RETURN 0;
+	ELSE
+		RETURN 1;
+	END IF;
 END; $$ LANGUAGE plpgsql;
+
+--VIEW PARA CONSULTA DAS ÁREAS ALUGADAS
+CREATE VIEW areas_alugadas(id, tipo, data, locador) AS
+SELECT id, tipo, data_aluguel, (SELECT nome FROM Pessoa WHERE cpf = locador) AS locador
+FROM Area_Lazer NATURAL JOIN Areas_Alug
+WHERE Area_Lazer.id = Areas_Alug.id
 
 --FUNÇÃO P/ CRIAR OS APARTAMENTOS ASSIM QUE UM CONDOMÍNIO FOR CRIADO NA TABELA CONDOMÍNIO
 CREATE OR REPLACE FUNCTION tab_apartamentos() RETURNS TRIGGER AS $$

@@ -9,8 +9,11 @@ CREATE TABLE Area_Lazer(
 	id INT NOT NULL,
 	tipo VARCHAR(45) NOT NULL,
 	capacidade INT,
-	aluguel FLOAT,
-	alugada BOOLEAN,
+	aluguel FLOAT
+);
+
+CREATE TABLE Areas_Alug(
+	id INT NOT NULL,
 	data_aluguel DATE,
 	locador BIGINT
 );
@@ -70,7 +73,9 @@ CREATE TABLE Emp_Contrat(
 ALTER TABLE Pessoa ADD PRIMARY KEY (cpf);
 
 ALTER TABLE Area_Lazer ADD PRIMARY KEY (id);
-ALTER TABLE Area_Lazer ADD FOREIGN KEY (locador) REFERENCES Pessoa(cpf);
+
+ALTER TABLE Areas_Alug ADD FOREIGN KEY (id) REFERENCES Area_Lazer(id);
+ALTER TABLE Areas_Alug ADD FOREIGN KEY (locador) REFERENCES Pessoa(cpf);
 
 ALTER TABLE Apartamento ADD PRIMARY KEY (bloco, numero);
 
