@@ -223,7 +223,7 @@ public class RegistrarVisitante extends javax.swing.JFrame {
                         null,
                         "Saída do visitante registrado com sucesso",
                         "Visitante",
-                        0);
+                        1);
         }
         else {
             JOptionPane.showMessageDialog(

@@ -449,8 +449,8 @@ public class Conexao {
     }
     
     public int registraSaidaVisitante(String nome, int bloco, int apartamento) {
-        String sql = "UPDATE Visita SET saida = CURRENT_TIMESTAMP WHERE nome = '"+nome+"', bloco_vis = "+bloco+", apartamento_vis = " + apartamento;
-        System.out.println("UPDATE Visita SET saida = CURRENT_TIMESTAMP WHERE nome = '"+nome+"' AND bloco_vis = "+bloco+" AND apartamento_vis = " + apartamento);
+        String sql = "UPDATE Visita SET saida = CURRENT_TIMESTAMP WHERE nome = '"+nome+"' AND bloco_vis = "+bloco+" AND apartamento_vis = " + apartamento;
+        System.out.println(sql);
         try {
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
@@ -492,6 +492,39 @@ public class Conexao {
                     empresa.setContato(contato);
                     empresa.setResponsavel(responsavel);
                     Bancos.getBancos().getBdEmpresas().add(empresa);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return rs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    //------------------------------------------- Áreas de lazer
+    
+    public ResultSet atualizaBancoAreaDeLazer() {
+        Bancos.getBancos().getBdAreaDeLazer().clear();
+        try {
+            Statement stm = con.createStatement();
+            ResultSet rs = null;
+            rs = stm.executeQuery("SELECT * FROM area_lazer");
+            try { // moradores
+                while (rs.next()) {
+                    AreaDeLazer area = new AreaDeLazer();
+
+                    int id = rs.getInt("id");
+                    String tipo = rs.getString("tipo");
+                    int capacidade = rs.getInt("capacidade");
+                    Float aluguel = rs.getFloat("aluguel");
+
+                    area.setTipo(tipo);
+                    area.setId(id);
+                    area.setCapacidade(capacidade);
+                    area.setValor(aluguel);
+                    Bancos.getBancos().getBdAreaDeLazer().add(area);
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
