@@ -1,17 +1,19 @@
 package condoware.CondoWare;
 
+import java.sql.Timestamp;
+
 public class Visitante {
-    private String entrada;
+    private Timestamp entrada;
     private int blocoVisitado;
     private String nomeVisitante;
     private int apVisitado;
-    private String saida;
+    private Timestamp saida;
 
-    public String getEntrada() {
+    public Timestamp getEntrada() {
         return entrada;
     }
 
-    public void setEntrada(String entrada) {
+    public void setEntrada(Timestamp entrada) {
         this.entrada = entrada;
     }
 
@@ -39,11 +41,11 @@ public class Visitante {
         this.apVisitado = apVisitado;
     }
 
-    public String getSaida() {
+    public Timestamp getSaida() {
         return saida;
     }
 
-    public void setSaida(String saida) {
+    public void setSaida(Timestamp saida) {
         this.saida = saida;
     }
 }
