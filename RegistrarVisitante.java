@@ -207,7 +207,8 @@ public class RegistrarVisitante extends javax.swing.JFrame {
                         "Ocorreu um erro ao registrar entrada do visitante!",
                         "Visitante",
                         0);                                       
-    }                                             
+        } 
+        listarAll();
 
     }//GEN-LAST:event_btRegistroEntActionPerformed
 
@@ -238,19 +239,14 @@ public class RegistrarVisitante extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
     
     public void listarAll() {
-        Bancos.getBancos().getBdVisitante().clear();
         Conexao.getConexao().atualizaBancoVisitante();
         DefaultTableModel tabModel = (DefaultTableModel) tabEntradaVis.getModel();
         int posLin = 0;
         tabModel.setRowCount(posLin);
         String a = "";
         for(int i = 0; i < Bancos.getBancos().bdVisitante.size(); i++){
-            if (a.equals(Bancos.getBancos().bdVisitante.get(i).getSaida()) == true) {
-                tabModel.insertRow(posLin, new Object[]{Bancos.getBancos().bdVisitante.get(i).getNomeVisitante(), 
-                                                           Bancos.getBancos().bdVisitante.get(i).getBlocoVisitado(), 
-                                                           Bancos.getBancos().bdVisitante.get(i).getBlocoVisitado(),
-                                                           Bancos.getBancos().bdVisitante.get(i).getSaida()}); 
-                posLin++;
+            if(Bancos.getBancos().getBdVisitante().get(i).getSaida() == null){
+                //montar tabela
             }
         }
     }
