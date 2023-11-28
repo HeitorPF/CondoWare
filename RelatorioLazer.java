@@ -5,6 +5,7 @@
 package condoware.CondoWare;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -45,6 +46,11 @@ public class RelatorioLazer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tabela Areas de Lazer");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         tabAreasDeLazer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -121,8 +127,12 @@ public class RelatorioLazer extends javax.swing.JFrame {
                     "Atenção!!",
                     1);
         }
-        else
-        EditLazer.getEditLazerUnic().setVisible(true);
+        else{
+            int row = tabAreasDeLazer.getSelectedRow();
+            EditLazer.getEditLazerUnic().receberLazer((String)tabAreasDeLazer.getValueAt(row,0),(int)tabAreasDeLazer.getValueAt(row,1),(float) tabAreasDeLazer.getValueAt(row,2));
+            EditLazer.getEditLazerUnic().setVisible(true);
+        }
+        
     }//GEN-LAST:event_btEditarActionPerformed
 
     private void btApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btApagarActionPerformed
@@ -133,14 +143,35 @@ public class RelatorioLazer extends javax.swing.JFrame {
                     "Atenção!!",
                     1);
         }
-        else
-        ApagarLazer.getApagarLazerUnic().setVisible(true);
+        else{
+            int row = tabAreasDeLazer.getSelectedRow();
+            ApagarLazer.getApagarLazerUnic().receberLazer((String)tabAreasDeLazer.getValueAt(row,0),(int)tabAreasDeLazer.getValueAt(row,1),(float) tabAreasDeLazer.getValueAt(row,2));
+            ApagarLazer.getApagarLazerUnic().setVisible(true);
+        }
     }//GEN-LAST:event_btApagarActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        listarAll();
+    }//GEN-LAST:event_formWindowActivated
+
+    public void listarAll() {
+        Bancos.getBancos().getBdAreaDeLazer().clear();
+        Conexao.getConexao().atualizaBancoAreaDeLazer();
+        DefaultTableModel tabModel = (DefaultTableModel) tabAreasDeLazer.getModel();
+        int posLin = 0;
+        tabModel.setRowCount(posLin);
+        for(AreaDeLazer a: Bancos.getBancos().getBdAreaDeLazer()) {
+            tabModel.insertRow(posLin, new Object[]{a.getTipo(),
+                                                       a.getCapacidade(),
+                                                       a.getValor()});
+            posLin++;
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btApagar;
     private javax.swing.JButton btEditar;

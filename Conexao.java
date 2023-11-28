@@ -539,5 +539,16 @@ public class Conexao {
         }
     }
     
+    public int achaLazer(String tipo, int capacidade, float aluguel){
+        int tamanho = 0;
+        while(tamanho < Bancos.getBancos().getBdAreaDeLazer().size()){
+            if(Bancos.getBancos().getBdAreaDeLazer().get(tamanho).getTipo().equals(tipo) && Bancos.getBancos().getBdAreaDeLazer().get(tamanho).getCapacidade() == capacidade && Bancos.getBancos().getBdAreaDeLazer().get(tamanho).getValor() == aluguel) {  
+                return tamanho;
+            }
+            tamanho = tamanho + 1;
+        }
+        return tamanho;          
+    }
+    
 }
 

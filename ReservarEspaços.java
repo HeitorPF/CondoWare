@@ -4,6 +4,8 @@
  */
 package condoware.CondoWare;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author joaop
@@ -43,6 +45,11 @@ public class ReservarEspaços extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Reservas de Areas de Lazer");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         tabAreasDeLazer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -58,12 +65,6 @@ public class ReservarEspaços extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabAreasDeLazer);
 
         rotData.setText("Data:");
-
-        cxData.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cxDataActionPerformed(evt);
-            }
-        });
 
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -112,15 +113,27 @@ public class ReservarEspaços extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cxDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxDataActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cxDataActionPerformed
-
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        listarAll();
+    }//GEN-LAST:event_formWindowActivated
 
+    public void listarAll() {
+        Bancos.getBancos().getBdAreaDeLazer().clear();
+        Conexao.getConexao().atualizaBancoAreaDeLazer();
+        DefaultTableModel tabModel = (DefaultTableModel) tabAreasDeLazer.getModel();
+        int posLin = 0;
+        tabModel.setRowCount(posLin);
+        for(AreaDeLazer a: Bancos.getBancos().getBdAreaDeLazer()) {
+            tabModel.insertRow(posLin, new Object[]{a.getTipo(),
+                                                       a.getCapacidade(),
+                                                       a.getValor()});
+            posLin++;
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btVoltar;
     private javax.swing.JTextField cxData;
