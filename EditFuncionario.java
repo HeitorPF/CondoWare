@@ -199,6 +199,7 @@ public class EditFuncionario extends javax.swing.JFrame {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         Conexao.getConexao().editFuncionario(cxNome.getText(), cxEmail.getText(), cxSenha.getText(), cxPlaca.getText(), cxCPF.getText());
+        receberNomeSal(cxNome.getText(), Float.parseFloat(cxSalario.getText()));
         mostrarDados();
     }//GEN-LAST:event_btSalvarActionPerformed
 
