@@ -169,10 +169,15 @@ public class Conexao {
     }
     
     public int editCondomino(String cpf, String nome,String placa ,String email, String senha, int bloco, int apartamento){
-        int res = 0;
+        if(placa.equals("")) {
+            placa = "null";
+        }
+        else {
+            placa = "'"+placa+"'";
+        }
         try {
             Statement stm = con.createStatement();
-            res = stm.executeUpdate("UPDATE relatorio_condominos SET nome = '"+ nome + "', email = '" + email + "', senha = '" + senha + "', placa = '" + placa + "', bloco = "+bloco+", apartamento = "+apartamento+" WHERE cpf = " + cpf);
+            stm.executeUpdate("UPDATE relatorio_condominos SET nome = '"+ nome + "', email = '" + email + "', senha = '" + senha + "', placa = " + placa + ", bloco = "+bloco+", apartamento = "+apartamento+" WHERE cpf = " + cpf);
         } catch (SQLException e) {
             return 0;
         }
