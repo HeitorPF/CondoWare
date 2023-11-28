@@ -181,7 +181,6 @@ public class ApagarFuncionario extends javax.swing.JFrame {
         limpar();
     }//GEN-LAST:event_btVoltarActionPerformed
 
-<<<<<<< HEAD
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         desativarCaixas();
         mostrarDados();
@@ -213,7 +212,6 @@ public class ApagarFuncionario extends javax.swing.JFrame {
         cxPlaca.setEnabled(false); 
     }
     
-=======
     private void btDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeletarActionPerformed
         int res = Conexao.getConexao().apagarFuncionario(cxCPF.getText());
         if(res == 1) {
@@ -232,7 +230,6 @@ public class ApagarFuncionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btDeletarActionPerformed
 
->>>>>>> dc058403741b2e8c6e2612b672081bd77cfce71f
     public void limpar(){
         cxNome.setText("");
         cxSalario.setText("");
