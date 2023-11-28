@@ -1,17 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package condoware.CondoWare;
 
 import javax.swing.table.DefaultTableModel;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-/**
- *
- * @author joaop
- */
 public class ReservarEspaços extends javax.swing.JFrame {
 
+    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
     /**
      * Creates new form ReservarEspaços
      */
@@ -41,7 +36,7 @@ public class ReservarEspaços extends javax.swing.JFrame {
         rotData = new javax.swing.JLabel();
         cxData = new javax.swing.JTextField();
         btVoltar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btReservar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Reservas de Areas de Lazer");
@@ -73,7 +68,12 @@ public class ReservarEspaços extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Reservar");
+        btReservar.setText("Reservar");
+        btReservar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btReservarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,7 +90,7 @@ public class ReservarEspaços extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
@@ -106,7 +106,7 @@ public class ReservarEspaços extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btVoltar)
-                    .addComponent(jButton1))
+                    .addComponent(btReservar))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -120,6 +120,20 @@ public class ReservarEspaços extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         listarAll();
     }//GEN-LAST:event_formWindowActivated
+
+    private void btReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReservarActionPerformed
+        int id = 102;
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd"); 
+        try{
+            Date data = formato.parse(cxData.getText());
+            Conexao.getConexao().verificaDataDisp(data, id);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_btReservarActionPerformed
+
 
     public void listarAll() {
         Bancos.getBancos().getBdAreaDeLazer().clear();
@@ -135,9 +149,9 @@ public class ReservarEspaços extends javax.swing.JFrame {
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btReservar;
     private javax.swing.JButton btVoltar;
     private javax.swing.JTextField cxData;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel rotData;
     private javax.swing.JTable tabAreasDeLazer;
