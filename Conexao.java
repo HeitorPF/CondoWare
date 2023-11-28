@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import java.sql.Timestamp;
 
 public class Conexao {
     
@@ -366,6 +367,37 @@ public class Conexao {
             return 1;
         } catch (SQLException e) {
             return 0;
+        }
+    }
+    
+    public ResultSet atualizaBancoProblemas() {
+        try {
+            Bancos.getBancos().getBdProblemas().clear();
+            Statement stm = con.createStatement();
+            ResultSet rs = null;
+            rs = stm.executeQuery("SELECT * FROM Reg_Problemas");
+            try { // problemas
+                while (rs.next()) {
+                    Problemas prob = new Problemas();
+
+                    String cpf = rs.getString("condomino");
+                    String desc = rs.getString("descricao");
+                    int bloco = rs.getInt("bloco");
+                    Timestamp data = rs.getTimestamp("data");
+
+                    prob.setCpf(cpf);
+                    prob.setDescricao(desc);
+                    prob.setBloco(bloco);
+                    prob.setData(data);
+                    Bancos.getBancos().getBdProblemas().add(prob);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return rs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
     
