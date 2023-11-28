@@ -201,12 +201,11 @@ public class Conexao {
         String sql= "SELECT exc_condomino ("+cpf+")";
         try{
         Statement stm = con.createStatement();
-        stm.executeUpdate(sql);
-        
+        ResultSet rs = null;
+        rs = stm.executeQuery(sql);
         return 1;
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("retorna 0");
             return 0;
         }
     }
@@ -309,6 +308,19 @@ public class Conexao {
             return 0;
         }
         return 1;
+    }
+    
+    public int apagarFuncionario(String cpf){
+        String sql= "SELECT exc_funcionario ("+cpf+")";
+        try{
+        Statement stm = con.createStatement();
+        ResultSet rs = null;
+        rs = stm.executeQuery(sql);
+        return 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
     
     //------------------------------------------------------ // Registrar problemas

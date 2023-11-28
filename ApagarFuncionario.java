@@ -4,6 +4,8 @@
  */
 package condoware.CondoWare;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author joaop
@@ -69,6 +71,11 @@ public class ApagarFuncionario extends javax.swing.JFrame {
         rotPlaca.setText("Placa do Veiculo:");
 
         btDeletar.setText("Deletar");
+        btDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDeletarActionPerformed(evt);
+            }
+        });
 
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -166,6 +173,24 @@ public class ApagarFuncionario extends javax.swing.JFrame {
         this.dispose();
         limpar();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeletarActionPerformed
+        int res = Conexao.getConexao().apagarFuncionario(cxCPF.getText());
+        if(res == 1) {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Funcionário apagado com sucesso",
+                        "Apagar",
+                        1);
+        }
+        else {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Erro ao apagar funcionário",
+                        "Apagar",
+                        0);
+        }
+    }//GEN-LAST:event_btDeletarActionPerformed
 
     public void limpar(){
         cxNome.setText("");
