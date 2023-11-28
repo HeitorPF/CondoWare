@@ -51,6 +51,7 @@ public class RegistrarVisitante extends javax.swing.JFrame {
         btRegistroEnt = new javax.swing.JButton();
         btRegistroSaida = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
+        btHistorico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro de Visitantes");
@@ -67,12 +68,6 @@ public class RegistrarVisitante extends javax.swing.JFrame {
         rotAp.setText("Apartamento:");
 
         rotBloco.setText("Bloco:");
-
-        cxNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cxNomeActionPerformed(evt);
-            }
-        });
 
         rotMsgSaida.setText("Registro de Saida");
 
@@ -110,6 +105,13 @@ public class RegistrarVisitante extends javax.swing.JFrame {
             }
         });
 
+        btHistorico.setText("Historico");
+        btHistorico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btHistoricoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -128,6 +130,8 @@ public class RegistrarVisitante extends javax.swing.JFrame {
                                         .addComponent(btRegistroEnt))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btHistorico)
+                                        .addGap(18, 18, 18)
                                         .addComponent(btRegistroSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(cxBloco, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -176,16 +180,13 @@ public class RegistrarVisitante extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btRegistroSaida)
-                    .addComponent(btVoltar))
+                    .addComponent(btVoltar)
+                    .addComponent(btHistorico))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cxNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cxNomeActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         this.dispose();
@@ -237,6 +238,10 @@ public class RegistrarVisitante extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         listarAll();
     }//GEN-LAST:event_formWindowActivated
+
+    private void btHistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHistoricoActionPerformed
+        HistoricoVisitas.getHistoricoVisitasUnic().setVisible(true);
+    }//GEN-LAST:event_btHistoricoActionPerformed
     
     public void listarAll() {
         Conexao.getConexao().atualizaBancoVisitante();
@@ -252,40 +257,9 @@ public class RegistrarVisitante extends javax.swing.JFrame {
             }
         }
     }
-                                              
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistrarVisitante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistrarVisitante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistrarVisitante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistrarVisitante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RegistrarVisitante().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btHistorico;
     private javax.swing.JButton btRegistroEnt;
     private javax.swing.JButton btRegistroSaida;
     private javax.swing.JButton btVoltar;
