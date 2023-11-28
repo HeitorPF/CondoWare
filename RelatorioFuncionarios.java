@@ -196,6 +196,7 @@ public class RelatorioFuncionarios extends javax.swing.JFrame {
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
         listarBusca();
+        Conexao.getConexao().atualizaBancoFuncionario();
     }//GEN-LAST:event_btBuscarActionPerformed
 
     public void listarBusca() {
