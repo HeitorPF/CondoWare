@@ -4,6 +4,8 @@
  */
 package condoware.CondoWare;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author joaop
@@ -40,6 +42,11 @@ public class EmpresasParceiras extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Empresas Parceiras");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         tabEmpresas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -76,8 +83,8 @@ public class EmpresasParceiras extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(btVoltar)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
@@ -89,6 +96,23 @@ public class EmpresasParceiras extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        listarAll();
+    }//GEN-LAST:event_formWindowActivated
+
+    public void listarAll() {
+        Bancos.getBancos().getBdEmpresas().clear();
+        Conexao.getConexao().atualizaBancoEmpresas();
+        DefaultTableModel tabModel = (DefaultTableModel) tabEmpresas.getModel();
+        int posLin = 0;
+        tabModel.setRowCount(posLin);
+        for(Empresas e: Bancos.getBancos().getBdEmpresas()) {
+            tabModel.insertRow(posLin, new Object[]{e.getNome(),
+                                                       e.getContato(),
+                                                       e.getResponsavel()});
+            posLin++;
+        }
+    }
     /**
      * @param args the command line arguments
      */
