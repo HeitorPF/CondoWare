@@ -3,10 +3,10 @@ package condoware.CondoWare;
 import javax.swing.table.DefaultTableModel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 
 public class ReservarEspaços extends javax.swing.JFrame {
 
-    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
     /**
      * Creates new form ReservarEspaços
      */
@@ -117,9 +117,9 @@ public class ReservarEspaços extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
 
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {                                     
         listarAll();
-    }//GEN-LAST:event_formWindowActivated
+    }                                    
 
     private void btReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReservarActionPerformed
         int id = 102;
@@ -134,6 +134,12 @@ public class ReservarEspaços extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btReservarActionPerformed
 
+    /*
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowActivated
+
+    */
 
     public void listarAll() {
         Bancos.getBancos().getBdAreaDeLazer().clear();
