@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class Problemas {
     private String descricao;
-    private int bloco;
+    private String bloco;
     private String cpf;
     private Timestamp data;
 
@@ -16,11 +16,11 @@ public class Problemas {
         this.descricao = descricao;
     }
 
-    public int getBloco() {
+    public String getBloco() {
         return bloco;
     }
 
-    public void setBloco(int bloco) {
+    public void setBloco(String bloco) {
         this.bloco = bloco;
     }
 

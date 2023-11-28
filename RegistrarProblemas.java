@@ -147,7 +147,7 @@ public class RegistrarProblemas extends javax.swing.JFrame {
             }
         }
         else {
-            if(Conexao.getConexao().registrarProblemas(CondoWare.getCpf(), txtDesc.getText(), Integer.parseInt(cxBloco.getText())) == 1) {
+            if(Conexao.getConexao().registrarProblemas(CondoWare.getCpf(), txtDesc.getText(), (cxBloco.getText())) == 1) {
                 JOptionPane.showMessageDialog(
                         null,
                         "Problema enviado com sucesso",

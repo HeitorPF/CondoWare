@@ -349,7 +349,7 @@ public class Conexao {
     
     //------------------------------------------------------ // Registrar problemas
     
-    public int registrarProblemas(String cpf, String desc, int bloco) {
+    public int registrarProblemas(String cpf, String desc, String bloco) {
         String sql = "INSERT INTO Reg_Problemas values (" + cpf + ", '" + desc + "', " + bloco + ", CURRENT_TIMESTAMP)";
         return registraProb(sql);
     }
@@ -382,7 +382,7 @@ public class Conexao {
 
                     String cpf = rs.getString("condomino");
                     String desc = rs.getString("descricao");
-                    int bloco = rs.getInt("bloco");
+                    String bloco = rs.getString("bloco");
                     Timestamp data = rs.getTimestamp("data");
 
                     prob.setCpf(cpf);

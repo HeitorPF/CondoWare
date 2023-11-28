@@ -120,7 +120,7 @@ public class HistoricoProblema extends javax.swing.JFrame {
     public void mostrarLinha(){
         int row = tabHistorico.getSelectedRow();
         String desc = (String) tabHistorico.getValueAt(row, 0);
-        int bloco = (int) tabHistorico.getValueAt(row,1);
+        String bloco = (String) tabHistorico.getValueAt(row,1);
         Date data = (Date) tabHistorico.getValueAt(row,2);
         JOptionPane.showMessageDialog(
                         null,
