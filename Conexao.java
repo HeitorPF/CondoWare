@@ -197,6 +197,20 @@ public class Conexao {
         }
     }
     
+    public int apagarCondomino(String cpf){
+        String sql= "SELECT exc_condomino ("+cpf+")";
+        try{
+        Statement stm = con.createStatement();
+        stm.executeUpdate(sql);
+        
+        return 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("retorna 0");
+            return 0;
+        }
+    }
+    
     //-------------------------------------------------------- //Relacionado aos Funcionarios
     
     public ResultSet atualizaBancoFuncionario() {
@@ -390,6 +404,35 @@ public class Conexao {
             return 1;
         } catch (SQLException e) {
             return 0;
+        }
+    }
+    
+    public ResultSet atualizaBancoEmpresa() {
+        Bancos.getBancos().getBdEmpresa().clear();
+        try {
+            Statement stm = con.createStatement();
+            ResultSet rs = null;
+            rs = stm.executeQuery("SELECT * FROM emp_contrat");
+            try { // moradores
+                while (rs.next()) {
+                    Empresas empresa = new Empresas();
+
+                    String nome = rs.getString("nome");
+                    String contato = rs.getString("contato");
+                    String responsavel = rs.getString("responsavel");
+
+                    empresa.setNome(nome);
+                    empresa.setContato(contato);
+                    empresa.setResponsavel(responsavel);
+                    Bancos.getBancos().getBdEmpresas().add(empresa);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return rs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
     

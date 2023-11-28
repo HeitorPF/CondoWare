@@ -4,6 +4,8 @@
  */
 package condoware.CondoWare;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author joaop
@@ -76,6 +78,11 @@ public class ApagarCondomino extends javax.swing.JFrame {
         rotPlaca.setText("Placa do Veiculo:");
 
         btDeletar.setText("Deletar");
+        btDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDeletarActionPerformed(evt);
+            }
+        });
 
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -178,6 +185,24 @@ public class ApagarCondomino extends javax.swing.JFrame {
         desativarCaixas();
         mostrarDados();
     }//GEN-LAST:event_formWindowActivated
+
+    private void btDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeletarActionPerformed
+        int res = Conexao.getConexao().apagarCondomino(cxCPF.getText());
+        if(res == 1) {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Condômino apagado com sucesso",
+                        "Apagar",
+                        1);
+        }
+        else {
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Erro ao apagar condômino",
+                        "Apagar",
+                        0);
+        }
+    }//GEN-LAST:event_btDeletarActionPerformed
 
     public void receberApNome(int numAp, String name){
         ap = numAp;
