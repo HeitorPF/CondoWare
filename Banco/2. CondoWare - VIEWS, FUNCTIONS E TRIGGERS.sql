@@ -66,7 +66,7 @@ CREATE TRIGGER alt_funcionarios INSTEAD OF UPDATE ON relatorio_funcionarios
 FOR EACH ROW EXECUTE PROCEDURE alt_funcionario();
 
 --EXCLUI CONDÔMINO
-CREATE OR REPLACE FUNCTION exc_condomino(cod BIGINT) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION exc_condomino(cod BIGINT) RETURNS VOID AS $$
 BEGIN
 	DELETE FROM Condomino WHERE cpf = cod;
 	DELETE FROM Veiculo WHERE cpf = cod;
@@ -74,18 +74,16 @@ BEGIN
 	IF NOT EXISTS (SELECT * FROM Funcionario WHERE cpf = cod) THEN
 		DELETE FROM Pessoa WHERE cpf = cod;
 	END IF;
-	RETURN 0;
 END; $$ LANGUAGE plpgsql;
 
 --EXCLUI FUNCIONÁRIO
-CREATE OR REPLACE FUNCTION exc_funcionario(cod BIGINT) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION exc_funcionario(cod BIGINT) RETURNS VOID AS $$
 BEGIN
 	DELETE FROM Funcionario WHERE cpf = cod;
 	DELETE FROM Veiculo WHERE cpf = cod;
 	IF NOT EXISTS (SELECT * FROM Condomino WHERE cpf = cod) THEN
 		DELETE FROM Pessoa WHERE cpf = cod;
 	END IF;
-	RETURN 0;
 END; $$ LANGUAGE plpgsql;
 
 --RELATÓRIO DAS ÁREAS ALUGADAS
