@@ -2,24 +2,18 @@ package condoware.CondoWare;
 
 public class AreaDeLazer {
 
-    public int getIdCondominio() {
-        return idCondominio;
-    }
-
-    public void setIdCondominio(int idCondominio) {
-        this.idCondominio = idCondominio;
-    }
-    private String nome;
+    
+    private String tipo;
     private int capacidade;
     private Float valor;
-    private int idCondominio;
+    private int id;
 
-    public String getNome() {
-        return nome;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public int getCapacidade() {
@@ -36,5 +30,13 @@ public class AreaDeLazer {
 
     public void setValor(Float valor) {
         this.valor = valor;
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

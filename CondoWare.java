@@ -41,11 +41,6 @@ public class CondoWare extends javax.swing.JFrame {
         rotSenha.setText("Senha:");
 
         cxEmail.setText("sindico@gmail.com");
-        cxEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cxEmailActionPerformed(evt);
-            }
-        });
 
         cxSenha.setText("root");
 
@@ -171,10 +166,6 @@ public class CondoWare extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btEntrarActionPerformed
-
-    private void cxEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cxEmailActionPerformed
 
     /**
      * @param args the command line arguments
