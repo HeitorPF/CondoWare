@@ -78,13 +78,13 @@ public class RegistrarVisitante extends javax.swing.JFrame {
 
         tabEntradaVis.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nome", "Apartamento", "Bloco", "Saida"
+                "Nome", "Apartamento", "Bloco"
             }
         ));
         jScrollPane1.setViewportView(tabEntradaVis);
@@ -243,10 +243,12 @@ public class RegistrarVisitante extends javax.swing.JFrame {
         DefaultTableModel tabModel = (DefaultTableModel) tabEntradaVis.getModel();
         int posLin = 0;
         tabModel.setRowCount(posLin);
-        String a = "";
         for(int i = 0; i < Bancos.getBancos().bdVisitante.size(); i++){
             if(Bancos.getBancos().getBdVisitante().get(i).getSaida() == null){
-                //montar tabela
+                tabModel.insertRow(posLin, new Object[]{Bancos.getBancos().bdVisitante.get(i).getNomeVisitante(),
+                                                           Bancos.getBancos().bdVisitante.get(i).getApVisitado(),
+                                                           Bancos.getBancos().bdVisitante.get(i).getBlocoVisitado()});
+                posLin++;
             }
         }
     }

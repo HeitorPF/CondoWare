@@ -450,6 +450,7 @@ public class Conexao {
     
     public int registraSaidaVisitante(String nome, int bloco, int apartamento) {
         String sql = "UPDATE Visita SET saida = CURRENT_TIMESTAMP WHERE nome = '"+nome+"', bloco_vis = "+bloco+", apartamento_vis = " + apartamento;
+        System.out.println("UPDATE Visita SET saida = CURRENT_TIMESTAMP WHERE nome = '"+nome+"' AND bloco_vis = "+bloco+" AND apartamento_vis = " + apartamento);
         try {
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
