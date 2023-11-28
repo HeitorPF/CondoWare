@@ -12,6 +12,9 @@ public class Bancos {
     static List<AreaDeLazer> bdAreaDeLazer;
     static List<Veiculo> bdVeiculo;
     static List<Apartamento> bdApartamento;
+    static List<Visitante> bdVisitante;
+    static List<Empresas> bdEmpresas;
+    static List<Problemas> bdProblemas;
     
     private Bancos() {
         bdCondominio = new ArrayList<>();
@@ -20,6 +23,9 @@ public class Bancos {
         bdAreaDeLazer = new ArrayList<>();
         bdVeiculo = new ArrayList<>();
         bdApartamento = new ArrayList<>();
+        bdVisitante = new ArrayList<>();
+        bdEmpresas = new ArrayList<>();
+        bdProblemas = new ArrayList<>();
     }
     
     public static Bancos getBancos() {
@@ -46,6 +52,15 @@ public class Bancos {
     }
     public List<Apartamento> getBdApartamento(){
         return bdApartamento;
+    }
+    public List<Visitante> getBdVisitante(){
+        return bdVisitante;
+    }
+    public List<Empresas> getBdEmpresas(){
+        return bdEmpresas;
+    }
+    public List<Problemas> getBdProblemas(){
+        return bdProblemas;
     }
     
     
@@ -77,5 +92,20 @@ public class Bancos {
     public Apartamento addApartamento(Apartamento apartamento) {
         bdApartamento.add(apartamento);
         return apartamento;
+    }
+    
+    public Visitante addVisitante(Visitante visitante) {
+        bdVisitante.add(visitante);
+        return visitante;
+    }
+    
+    public Empresas addEmpresas(Empresas empresas) {
+        bdEmpresas.add(empresas);
+        return empresas;
+    }
+    
+    public Problemas addProblemas(Problemas problemas) {
+        bdProblemas.add(problemas);
+        return problemas;
     }
 }

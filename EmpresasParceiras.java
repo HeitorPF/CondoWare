@@ -4,26 +4,28 @@
  */
 package condoware.CondoWare;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author joaop
  */
-public class GerenciarCondômino extends javax.swing.JFrame {
+public class EmpresasParceiras extends javax.swing.JFrame {
 
     /**
-     * Creates new form GerenciarFuncionario
+     * Creates new form NewJFrame
      */
-    private GerenciarCondômino() {
+    private EmpresasParceiras() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    private static GerenciarCondômino gerenciarCondominoUnic;
-    public static GerenciarCondômino getGerenciarCondominoUnic() {
-        if (gerenciarCondominoUnic == null) {
-            gerenciarCondominoUnic = new GerenciarCondômino();
+    private static EmpresasParceiras empresasParceirasUnic;
+    public static EmpresasParceiras getEmpresasParceirasUnic(){
+        if(empresasParceirasUnic == null){
+            empresasParceirasUnic = new EmpresasParceiras();
         }
-        return gerenciarCondominoUnic;
+        return empresasParceirasUnic;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,26 +36,30 @@ public class GerenciarCondômino extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btAdicionar = new javax.swing.JButton();
-        btEditar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabEmpresas = new javax.swing.JTable();
         btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Gerenciamento de Condôminos");
-
-        btAdicionar.setText("Adicionar");
-        btAdicionar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btAdicionarActionPerformed(evt);
+        setTitle("Empresas Parceiras");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
             }
         });
 
-        btEditar.setText("Editar/Apagar");
-        btEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEditarActionPerformed(evt);
+        tabEmpresas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nome da Empresa", "Contato", "Responsável"
             }
-        });
+        ));
+        jScrollPane1.setViewportView(tabEmpresas);
 
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -67,40 +73,46 @@ public class GerenciarCondômino extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btAdicionar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(btAdicionar)
                 .addGap(18, 18, 18)
-                .addComponent(btEditar)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(btVoltar)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
-        AddCondomino.getAddCondominoUnic().setVisible(true);
-    }//GEN-LAST:event_btAdicionarActionPerformed
-
-    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
-        RelatorioCondôminos.getRelatorioCondominosUnic().setVisible(true);
-    }//GEN-LAST:event_btEditarActionPerformed
-
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        listarAll();
+    }//GEN-LAST:event_formWindowActivated
+
+    public void listarAll() {
+        Bancos.getBancos().getBdEmpresas().clear();
+        Conexao.getConexao().atualizaBancoEmpresa();
+        DefaultTableModel tabModel = (DefaultTableModel) tabEmpresas.getModel();
+        int posLin = 0;
+        tabModel.setRowCount(posLin);
+        for(Empresas e: Bancos.getBancos().getBdEmpresas()) {
+            tabModel.insertRow(posLin, new Object[]{e.getNome(),
+                                                       e.getContato(),
+                                                       e.getResponsavel()});
+            posLin++;
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -118,13 +130,13 @@ public class GerenciarCondômino extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GerenciarCondômino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmpresasParceiras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GerenciarCondômino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmpresasParceiras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GerenciarCondômino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmpresasParceiras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GerenciarCondômino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmpresasParceiras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -132,14 +144,14 @@ public class GerenciarCondômino extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GerenciarCondômino().setVisible(true);
+                new EmpresasParceiras().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btAdicionar;
-    private javax.swing.JButton btEditar;
     private javax.swing.JButton btVoltar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tabEmpresas;
     // End of variables declaration//GEN-END:variables
 }

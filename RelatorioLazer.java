@@ -4,27 +4,30 @@
  */
 package condoware.CondoWare;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author joaop
  */
-public class ReservarEspaços extends javax.swing.JFrame {
+public class RelatorioLazer extends javax.swing.JFrame {
 
     /**
-     * Creates new form ReservarEspaços
+     * Creates new form RelatorioLazer
      */
-    private ReservarEspaços() {
+    private RelatorioLazer() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
     
-    private static ReservarEspaços reservarEspaçosUnic;
-    public static ReservarEspaços getReservarEspaçosUnic(){
-        if(reservarEspaçosUnic == null){
-            reservarEspaçosUnic = new ReservarEspaços();
+    private static RelatorioLazer relatorioLazerUnic;
+    public static RelatorioLazer getRelatorioLazerUnic() {
+        if (relatorioLazerUnic == null) {
+            relatorioLazerUnic = new RelatorioLazer();
         }
-        return reservarEspaçosUnic;
-    }
+        return relatorioLazerUnic;
+     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,20 +39,16 @@ public class ReservarEspaços extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tabAreasDeLazer = new javax.swing.JTable();
-        rotData = new javax.swing.JLabel();
-        cxData = new javax.swing.JTextField();
+        btEditar = new javax.swing.JButton();
+        btApagar = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Reservas de Areas de Lazer");
+        setTitle("Tabela Areas de Lazer");
 
         tabAreasDeLazer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Tipo", "Capacidade", "Aluguel"
@@ -57,11 +56,17 @@ public class ReservarEspaços extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabAreasDeLazer);
 
-        rotData.setText("Data:");
-
-        cxData.addActionListener(new java.awt.event.ActionListener() {
+        btEditar.setText("Editar");
+        btEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cxDataActionPerformed(evt);
+                btEditarActionPerformed(evt);
+            }
+        });
+
+        btApagar.setText("Apagar");
+        btApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btApagarActionPerformed(evt);
             }
         });
 
@@ -72,49 +77,65 @@ public class ReservarEspaços extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Reservar");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(rotData, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cxData, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(btEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)
+                        .addComponent(btApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btVoltar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(16, 16, 16)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rotData)
-                    .addComponent(cxData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btVoltar)
-                    .addComponent(jButton1))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btApagar)
+                    .addComponent(btEditar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btVoltar)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cxDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxDataActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cxDataActionPerformed
+    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
+        if(tabAreasDeLazer.getSelectedRow() == -1){
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Selecione alguma área de lazer na tabela!!",
+                    "Atenção!!",
+                    1);
+        }
+        else
+        EditLazer.getEditLazerUnic().setVisible(true);
+    }//GEN-LAST:event_btEditarActionPerformed
+
+    private void btApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btApagarActionPerformed
+        if(tabAreasDeLazer.getSelectedRow() == -1){
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Selecione alguma área de lazer na tabela!!",
+                    "Atenção!!",
+                    1);
+        }
+        else
+        ApagarLazer.getApagarLazerUnic().setVisible(true);
+    }//GEN-LAST:event_btApagarActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         this.dispose();
@@ -137,30 +158,29 @@ public class ReservarEspaços extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReservarEspaços.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatorioLazer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReservarEspaços.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatorioLazer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReservarEspaços.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatorioLazer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReservarEspaços.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatorioLazer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReservarEspaços().setVisible(true);
+                new RelatorioLazer().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btApagar;
+    private javax.swing.JButton btEditar;
     private javax.swing.JButton btVoltar;
-    private javax.swing.JTextField cxData;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel rotData;
     private javax.swing.JTable tabAreasDeLazer;
     // End of variables declaration//GEN-END:variables
 }

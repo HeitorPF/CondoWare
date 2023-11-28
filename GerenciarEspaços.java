@@ -8,22 +8,22 @@ package condoware.CondoWare;
  *
  * @author joaop
  */
-public class GerenciarCondômino extends javax.swing.JFrame {
+public class GerenciarEspaços extends javax.swing.JFrame {
 
     /**
-     * Creates new form GerenciarFuncionario
+     * Creates new form GerenciarEspaços
      */
-    private GerenciarCondômino() {
+    private GerenciarEspaços() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    private static GerenciarCondômino gerenciarCondominoUnic;
-    public static GerenciarCondômino getGerenciarCondominoUnic() {
-        if (gerenciarCondominoUnic == null) {
-            gerenciarCondominoUnic = new GerenciarCondômino();
+    private static GerenciarEspaços gerenciarEspaçosUnic;
+    public static GerenciarEspaços getTelaFuncUnic(){
+        if(gerenciarEspaçosUnic == null){
+            gerenciarEspaçosUnic = new GerenciarEspaços();
         }
-        return gerenciarCondominoUnic;
+        return gerenciarEspaçosUnic;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,11 +35,11 @@ public class GerenciarCondômino extends javax.swing.JFrame {
     private void initComponents() {
 
         btAdicionar = new javax.swing.JButton();
-        btEditar = new javax.swing.JButton();
+        btEditarApagar = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Gerenciamento de Condôminos");
+        setTitle("Gerenciar Areas de Lazer");
 
         btAdicionar.setText("Adicionar");
         btAdicionar.addActionListener(new java.awt.event.ActionListener() {
@@ -48,10 +48,10 @@ public class GerenciarCondômino extends javax.swing.JFrame {
             }
         });
 
-        btEditar.setText("Editar/Apagar");
-        btEditar.addActionListener(new java.awt.event.ActionListener() {
+        btEditarApagar.setText("Editar/Apagar");
+        btEditarApagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEditarActionPerformed(evt);
+                btEditarApagarActionPerformed(evt);
             }
         });
 
@@ -67,39 +67,39 @@ public class GerenciarCondômino extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(118, 118, 118)
+                .addGap(109, 109, 109)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btAdicionar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btEditarApagar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(26, 26, 26)
                 .addComponent(btAdicionar)
                 .addGap(18, 18, 18)
-                .addComponent(btEditar)
+                .addComponent(btEditarApagar)
                 .addGap(18, 18, 18)
                 .addComponent(btVoltar)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
-        AddCondomino.getAddCondominoUnic().setVisible(true);
-    }//GEN-LAST:event_btAdicionarActionPerformed
-
-    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
-        RelatorioCondôminos.getRelatorioCondominosUnic().setVisible(true);
-    }//GEN-LAST:event_btEditarActionPerformed
-
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
+        AddLazer.getAddLazerUnic().setVisible(true);
+    }//GEN-LAST:event_btAdicionarActionPerformed
+
+    private void btEditarApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarApagarActionPerformed
+        RelatorioLazer.getRelatorioLazerUnic().setVisible(true);
+    }//GEN-LAST:event_btEditarApagarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,28 +118,27 @@ public class GerenciarCondômino extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GerenciarCondômino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciarEspaços.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GerenciarCondômino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciarEspaços.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GerenciarCondômino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciarEspaços.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GerenciarCondômino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciarEspaços.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GerenciarCondômino().setVisible(true);
+                new GerenciarEspaços().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdicionar;
-    private javax.swing.JButton btEditar;
+    private javax.swing.JButton btEditarApagar;
     private javax.swing.JButton btVoltar;
     // End of variables declaration//GEN-END:variables
 }

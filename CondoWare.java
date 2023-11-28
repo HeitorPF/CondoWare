@@ -1,9 +1,8 @@
 package condoware.CondoWare;
 
-/**
- *
- * @author joaop
- */
+
+import javax.swing.JOptionPane;
+
 public class CondoWare extends javax.swing.JFrame {
 
     
@@ -14,6 +13,8 @@ public class CondoWare extends javax.swing.JFrame {
 
     
     private static String senhaPostgreSql = "";
+    private static String cpf = "";
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,6 +40,15 @@ public class CondoWare extends javax.swing.JFrame {
 
         rotSenha.setText("Senha:");
 
+        cxEmail.setText("sindico@gmail.com");
+        cxEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cxEmailActionPerformed(evt);
+            }
+        });
+
+        cxSenha.setText("root");
+
         btEntrar.setText("Entrar");
         btEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,6 +58,7 @@ public class CondoWare extends javax.swing.JFrame {
 
         rotSenhaPostgresql.setText("Senha para PostgreSql:");
 
+        cxSenhaPostgresql.setText("2H2l4a6*");
         cxSenhaPostgresql.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cxSenhaPostgresqlActionPerformed(evt);
@@ -123,8 +134,47 @@ public class CondoWare extends javax.swing.JFrame {
     }//GEN-LAST:event_cxSenhaPostgresqlActionPerformed
 
     private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
-        // TODO add your handling code here:
+        int cargo = Conexao.getConexao().verificaCargo(cxEmail.getText());
+        String senhaCerta = "";
+        if(cargo == 0) { //não achou email
+            JOptionPane.showMessageDialog(
+                        null,
+                        "Email não encontrado!",
+                        "Não encontrado",
+                        0);  
+        }
+        else {
+            senhaCerta = Conexao.getConexao().buscaSenha(cxEmail.getText());
+            if(senhaCerta.equals(cxSenha.getText())){
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Logado com sucesso!",
+                        "Log in",
+                        1);
+                if(cargo == 1) { //síndico
+                    TelaDoSindico.getTelaSindicoUnic().setVisible(true);
+                }
+                if(cargo == 2) { //funcionario
+                    TelaDoFuncionario.getTelaFuncUnic().setVisible(true);
+                }
+                if(cargo == 3) { //morador
+                    TelaDoCondomino.getTelaCondominoUnic().setVisible(true);
+                }
+                setCpf(Conexao.getConexao().buscaCpf(cxEmail.getText()));
+            }
+            else {
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Senha incorreta",
+                        "Senha incorreta",
+                        0);
+            }
+        }
     }//GEN-LAST:event_btEntrarActionPerformed
+
+    private void cxEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cxEmailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,5 +229,13 @@ public class CondoWare extends javax.swing.JFrame {
 
     public static void setSenhaPostgreSql(String senhaPostgreSql) {
         CondoWare.senhaPostgreSql = senhaPostgreSql;
+    }
+
+    public static String getCpf() {
+        return cpf;
+    }
+
+    public static void setCpf(String cpf) {
+        CondoWare.cpf = cpf;
     }
 }

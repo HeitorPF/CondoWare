@@ -13,11 +13,18 @@ public class TelaDoSindico extends javax.swing.JFrame {
     /**
      * Creates new form TelaDoCondomino
      */
-    public TelaDoSindico() {
+    private TelaDoSindico() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-
+    
+    private static TelaDoSindico telaSindicoUnic;
+    public static TelaDoSindico getTelaSindicoUnic(){
+        if(telaSindicoUnic == null){
+            telaSindicoUnic = new TelaDoSindico();
+        }
+        return telaSindicoUnic;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,28 +42,71 @@ public class TelaDoSindico extends javax.swing.JFrame {
         bRegistrarEmpressas = new javax.swing.JButton();
         btGerenciarFuncionario = new javax.swing.JButton();
         btGerenciarCondomino = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela Incial");
 
         btRegistarProblemas.setText("Registrar Problemas");
+        btRegistarProblemas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegistarProblemasActionPerformed(evt);
+            }
+        });
 
         btGerenciarEspaços.setText("Gerenciar Espaços");
+        btGerenciarEspaços.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGerenciarEspaçosActionPerformed(evt);
+            }
+        });
 
         btDadosPessoais.setText("Dados Pessoais");
+        btDadosPessoais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDadosPessoaisActionPerformed(evt);
+            }
+        });
 
         btGerenciarPortão.setText("Gerenciar Portão");
+        btGerenciarPortão.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGerenciarPortãoActionPerformed(evt);
+            }
+        });
 
         btRegistrarVisitante.setText("Registrar Visitante");
+        btRegistrarVisitante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegistrarVisitanteActionPerformed(evt);
+            }
+        });
 
         bRegistrarEmpressas.setText("Registrar Empresas");
+        bRegistrarEmpressas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRegistrarEmpressasActionPerformed(evt);
+            }
+        });
 
         btGerenciarFuncionario.setText("Gerenciar Funcionario");
+        btGerenciarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGerenciarFuncionarioActionPerformed(evt);
+            }
+        });
 
         btGerenciarCondomino.setText("Gerenciar Condômino");
         btGerenciarCondomino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGerenciarCondominoActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Empresas Parceiras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -74,7 +124,8 @@ public class TelaDoSindico extends javax.swing.JFrame {
                     .addComponent(btGerenciarPortão, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btRegistrarVisitante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btGerenciarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btGerenciarCondomino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btGerenciarCondomino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(111, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -93,18 +144,53 @@ public class TelaDoSindico extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(bRegistrarEmpressas)
                 .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
                 .addComponent(btGerenciarFuncionario)
                 .addGap(18, 18, 18)
                 .addComponent(btGerenciarCondomino)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btGerenciarCondominoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerenciarCondominoActionPerformed
-        // TODO add your handling code here:
+        GerenciarCondômino.getGerenciarCondominoUnic().setVisible(true);
     }//GEN-LAST:event_btGerenciarCondominoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        EmpresasParceiras.getEmpresasParceirasUnic().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btDadosPessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDadosPessoaisActionPerformed
+        DadosPessoaisFuncionarios.getDadosPessoaisFuncUnic().setVisible(true);
+        Conexao.getConexao().atualizaBancoFuncionario();
+    }//GEN-LAST:event_btDadosPessoaisActionPerformed
+
+    private void btGerenciarEspaçosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerenciarEspaçosActionPerformed
+        GerenciarEspaços.getTelaFuncUnic().setVisible(true);
+    }//GEN-LAST:event_btGerenciarEspaçosActionPerformed
+
+    private void btRegistarProblemasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistarProblemasActionPerformed
+        RegistrarProblemas.getRegistrarProblemasUnic().setVisible(true);
+    }//GEN-LAST:event_btRegistarProblemasActionPerformed
+
+    private void btGerenciarPortãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerenciarPortãoActionPerformed
+        GerenciarPortão.getGerenciarPortaoUnic().setVisible(true);
+    }//GEN-LAST:event_btGerenciarPortãoActionPerformed
+
+    private void btRegistrarVisitanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarVisitanteActionPerformed
+        RegistrarVisitante.getRegistrarVisitanteUnic().setVisible(true);
+    }//GEN-LAST:event_btRegistrarVisitanteActionPerformed
+
+    private void bRegistrarEmpressasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarEmpressasActionPerformed
+        RegistrarEmpresas.getRegistrarEmpresasUnic().setVisible(true);
+    }//GEN-LAST:event_bRegistrarEmpressasActionPerformed
+
+    private void btGerenciarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerenciarFuncionarioActionPerformed
+        GerenciarFuncionario.getGerenciarFuncionarioUnic().setVisible(true);
+    }//GEN-LAST:event_btGerenciarFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,5 +239,6 @@ public class TelaDoSindico extends javax.swing.JFrame {
     private javax.swing.JButton btGerenciarPortão;
     private javax.swing.JButton btRegistarProblemas;
     private javax.swing.JButton btRegistrarVisitante;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
