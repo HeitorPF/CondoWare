@@ -416,8 +416,8 @@ public class Conexao {
                     String nomeVisitante = rs.getString("nome");
                     int blocoVisitado = rs.getInt("bloco_vis");
                     int apVisitado = rs.getInt("apartamento_vis");
-                    String entrada = rs.getString("entrada");
-                    String saida = rs.getString("saida");
+                    Timestamp entrada = rs.getTimestamp("entrada");
+                    Timestamp saida = rs.getTimestamp("saida");
 
                     visitante.setNomeVisitante(nomeVisitante);
                     visitante.setBlocoVisitado(blocoVisitado);
