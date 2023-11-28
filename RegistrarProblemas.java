@@ -43,6 +43,7 @@ public class RegistrarProblemas extends javax.swing.JFrame {
         cxBloco = new javax.swing.JTextField();
         btEnviar = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
+        btHistorico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro de Problemas");
@@ -74,6 +75,13 @@ public class RegistrarProblemas extends javax.swing.JFrame {
             }
         });
 
+        btHistorico.setText("Histórico de Problemas");
+        btHistorico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btHistoricoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,12 +94,14 @@ public class RegistrarProblemas extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rotBloco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cxBloco))
+                        .addComponent(cxBloco, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btHistorico)
+                        .addGap(18, 18, 18)
                         .addComponent(btEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,7 +117,8 @@ public class RegistrarProblemas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btEnviar)
-                    .addComponent(btVoltar))
+                    .addComponent(btVoltar)
+                    .addComponent(btHistorico))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -158,6 +169,10 @@ public class RegistrarProblemas extends javax.swing.JFrame {
         cxBloco.setText("");
     }//GEN-LAST:event_formWindowActivated
 
+    private void btHistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHistoricoActionPerformed
+        HistoricoProblema.getHistoricoProblemaUnicUnic().setVisible(true);
+    }//GEN-LAST:event_btHistoricoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -195,6 +210,7 @@ public class RegistrarProblemas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEnviar;
+    private javax.swing.JButton btHistorico;
     private javax.swing.JButton btVoltar;
     private javax.swing.JTextField cxBloco;
     private javax.swing.JScrollPane jScrollPane1;
