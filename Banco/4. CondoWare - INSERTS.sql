@@ -44,3 +44,20 @@ INSERT INTO Area_Lazer VALUES (402, 'Piscina', 50, 100, TRUE, '2023-9-10', 90123
 INSERT INTO Area_Lazer VALUES (403, 'Espaço Festa', 50, 70, FALSE, NULL, NULL);
 INSERT INTO Area_Lazer VALUES (1101, 'Espaço com Churrasqueira', 40, 70, TRUE, '2025-10-19', 56789001234);
 INSERT INTO Area_Lazer VALUES (1102, 'Piscina', 50, 100, FALSE, NULL, NULL);
+
+INSERT INTO Visita VALUES ('Antonio', 1, 20, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO Visita VALUES ('Luiz Castro', 1, 20, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO Visita VALUES ('José Gomes', 4, 8, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO Visita VALUES ('Marcelo', 15, 20, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO Visita VALUES ('João', 1, 5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+INSERT INTO Reg_Problemas VALUES (34567890012, 'Grande quantidade de lixo acumulado na entrada', NULL, CURRENT_TIMESTAMP);
+INSERT INTO Reg_Problemas VALUES (34567890012, 'Muito barulho durante a noite no apartamento 5', 1, CURRENT_TIMESTAMP);
+INSERT INTO Reg_Problemas VALUES (91234567890, 'Piscina com lixo', 4, CURRENT_TIMESTAMP);
+INSERT INTO Reg_Problemas VALUES (78900123456, 'Os porteiros estão passando muito tempo fora da portaria', NULL, CURRENT_TIMESTAMP);
+INSERT INTO Reg_Problemas VALUES (90012345678, 'Vazamento da torneira no salão de festa', 1, CURRENT_TIMESTAMP);
+
+INSERT INTO Emp_Contrat VALUES ('Limpeza Certa', '64956489253', 'Augusto Santos Costa', 'Serviços terceirizados de limpeza das áreas de lazer');
+INSERT INTO Emp_Contrat VALUES ('Clean Piscinas', '64956489253', NULL, 'Serviços terceirizados de limpeza de piscina');
+INSERT INTO Emp_Contrat VALUES ('Conserta Tudo', '64956489253', 'Gilberto Castro Silva', 'Serviços terceirizados de consertos e manutenção em geral do condomínio');
+INSERT INTO Emp_Contrat VALUES ('Vida Salva', '64956489253', 'José Silva Santos', 'Serviços terceirizados de segurança e monitoramento');

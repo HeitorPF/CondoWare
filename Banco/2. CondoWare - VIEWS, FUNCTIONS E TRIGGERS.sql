@@ -26,7 +26,7 @@ SELECT cpf, nome, bloco, apartamento, (SELECT placa FROM Veiculo WHERE Pessoa.cp
 FROM Pessoa NATURAL JOIN Condomino
 WHERE Pessoa.cpf = Condomino.cpf;
 
-CREATE OR REPLACE FUNCTION insere_condominos() RETURNS VOID AS $$
+CREATE OR REPLACE FUNCTION insere_condominos() RETURNS TRIGGER AS $$
 BEGIN
 	IF EXISTS (SELECT * FROM Apartamento WHERE NEW.apartamento = numero AND NEW.bloco = bloco AND ocupado = FALSE) THEN
 		IF NOT EXISTS (SELECT * FROM Pessoa WHERE NEW.cpf = cpf) THEN 

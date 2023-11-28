@@ -63,7 +63,8 @@ CREATE TABLE Reg_Problemas(
 CREATE TABLE Emp_Contrat(
 	nome VARCHAR(30) NOT NULL,
 	contato VARCHAR(15) NOT NULL,
-	responsavel VARCHAR(45) NOT NULL
+	responsavel VARCHAR(45),
+	serv_atr VARCHAR(100) NOT NULL
 );
 
 ALTER TABLE Pessoa ADD PRIMARY KEY (cpf);
