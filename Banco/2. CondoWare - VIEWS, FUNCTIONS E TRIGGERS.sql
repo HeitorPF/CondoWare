@@ -98,9 +98,9 @@ CREATE OR REPLACE FUNCTION alug_area(cod INTEGER, dat DATE, loc BIGINT) RETURNS 
 BEGIN
 	IF NOT EXISTS (SELECT * FROM Areas_Alug WHERE id = cod AND data_aluguel = dat) THEN
 		UPDATE Areas_Alug SET id = cod, data_aluguel = dat, locador = loc WHERE id = cod;
-		RETURN 0;
-	ELSE
 		RETURN 1;
+	ELSE
+		RETURN 0;
 	END IF;
 END; $$ LANGUAGE plpgsql;
 
