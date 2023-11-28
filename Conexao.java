@@ -270,7 +270,7 @@ public class Conexao {
     public int achaFuncionarioNoSal(String nome, float salario){
         int tamanho = 0;
         while(tamanho < Bancos.getBancos().getBdFuncionario().size()){
-            if(Bancos.getBancos().getBdFuncionario().get(tamanho).getNome() == nome && Bancos.getBancos().getBdFuncionario().get(tamanho).getSalario() == salario) {  
+            if(Bancos.getBancos().getBdFuncionario().get(tamanho).getNome().equals(nome) && Bancos.getBancos().getBdFuncionario().get(tamanho).getSalario() == salario) {  
                 return tamanho;
             }
             tamanho = tamanho + 1;

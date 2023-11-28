@@ -57,12 +57,6 @@ public class RelatorioCondôminos extends javax.swing.JFrame {
 
         rotNome.setText("Nome:");
 
-        cxNome.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                cxNomeKeyTyped(evt);
-            }
-        });
-
         tabCondominos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -165,8 +159,9 @@ public class RelatorioCondôminos extends javax.swing.JFrame {
         }
         else{
             int row = tabCondominos.getSelectedRow();
+            System.out.println(row);
             EditCondomino.getEditCondominoUnic().receberApNome((int) tabCondominos.getValueAt(row,2),tabCondominos.getValueAt(row,0).toString());
-            EditCondomino.getEditCondominoUnic().setVisible(true);
+            EditCondomino.getEditCondominoUnic().setVisible(true);           
         }       
     }//GEN-LAST:event_btEditarActionPerformed
 
@@ -194,16 +189,13 @@ public class RelatorioCondôminos extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
-        listarBusca();     
+        listarBusca();   
+        Conexao.getConexao().atualizaBancoCondomino();
     }//GEN-LAST:event_btBuscarActionPerformed
 
     private void btMostrarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMostrarTodosActionPerformed
         listarAll();
     }//GEN-LAST:event_btMostrarTodosActionPerformed
-
-    private void cxNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cxNomeKeyTyped
-        //listarBusca();
-    }//GEN-LAST:event_cxNomeKeyTyped
 
     public void listarBusca() {
         Bancos.getBancos().getBdCondomino().clear();
