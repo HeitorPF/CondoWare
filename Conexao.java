@@ -148,11 +148,18 @@ public class Conexao {
     }
     
     public int addCondomino(String cpf, String nome, int bloco, int apartamento, String placa ,String email, String senha) {
-        int res = 0;
+        if(placa.equals("")) {
+            placa  = "null";
+        }
+        else {
+            placa = "'" + placa + "'";
+        }
         try{
+            String sql = "INSERT INTO relatorio_condominos "
+                    + "values('" + cpf + "','" + nome + "','" + bloco + "','" + apartamento + "'," + placa + ",'" + email + "','" + senha + "')";
             Statement stm = con.createStatement();
-            res = stm.executeUpdate("INSERT INTO relatorio_condominos "
-                    + "values('" + cpf + "','" + nome + "','" + bloco + "','" + apartamento + "','" + placa + "','" + email + "','" + senha + "')");
+            stm.executeUpdate(sql);
+            System.out.println(sql);
         } catch (Exception e) {
             e.printStackTrace();
             return 0;
@@ -298,11 +305,16 @@ public class Conexao {
     }
     
     public int addFuncionario(String cpf, String nome, Float salario, String cargo, String email, String senha, String placa) {
-        int res = 0;
         try{
+            if(placa.equals("")) {
+                placa = "null";
+            }
+            else {
+                placa = "'" + placa + "'";
+            }
             Statement stm = con.createStatement();
-            res = stm.executeUpdate("INSERT INTO relatorio_funcionarios "
-                    + "values('" + cpf + "','" + nome + "','" + salario + "','" + cargo + "','" + placa + "','" + email + "','" + senha + "')");
+            stm.executeUpdate("INSERT INTO relatorio_funcionarios "
+                    + "values('" + cpf + "','" + nome + "','" + salario + "','" + cargo + "'," + placa + ",'" + email + "','" + senha + "')");
         } catch (Exception e) {
             e.printStackTrace();
             return 0;
