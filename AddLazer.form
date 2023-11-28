@@ -125,9 +125,6 @@
     <Component class="javax.swing.JTextField" name="cxTipo">
     </Component>
     <Component class="javax.swing.JTextField" name="cxCapacidade">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cxCapacidadeActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cxAluguel">
     </Component>
