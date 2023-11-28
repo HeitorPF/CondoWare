@@ -190,15 +190,7 @@ public class DadosPessoaisFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        index = Conexao.getConexao().achaFuncionarioCpf(CondoWare.getCpf());
-        cxNome.setText(Bancos.getBancos().getBdFuncionario().get(index).getNome());
-        cxCPF.setText(Bancos.getBancos().getBdFuncionario().get(index).getCpf());
-        cxEmail.setText(Bancos.getBancos().getBdFuncionario().get(index).getEmail());
-        cxSenha.setText(Bancos.getBancos().getBdFuncionario().get(index).getSenha());
-        cxSalario.setText(Float.toString(Bancos.getBancos().getBdFuncionario().get(index).getSalario()));
-        cxCargo.setText(Bancos.getBancos().getBdFuncionario().get(index).getCargo());
-        cxPlaca.setText(Bancos.getBancos().getBdFuncionario().get(index).getVeiculo().getPlaca());
-        desativarCaixas();
+        setarCaixasFunc();
     }//GEN-LAST:event_formWindowActivated
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
@@ -206,7 +198,8 @@ public class DadosPessoaisFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btEditarActionPerformed
 
     private void btSalvarMudançasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarMudançasActionPerformed
-        if(Conexao.getConexao().editFuncionario(cxNome.getText(), cxEmail.getText(), cxSenha.getText(),cxPlaca.getText(), cxCPF.getText()) == 1) {
+        int editFunc = Conexao.getConexao().editFuncionario(cxNome.getText(), cxEmail.getText(), cxSenha.getText(),cxPlaca.getText(), cxCPF.getText());
+        if(editFunc == 1) {
             JOptionPane.showMessageDialog(
                         null,
                         "Mudanças salvas!",
@@ -220,6 +213,8 @@ public class DadosPessoaisFuncionarios extends javax.swing.JFrame {
                         "Alterar dados",
                         0);
         }
+        Conexao.getConexao().atualizaBancoFuncionario();
+        setarCaixasFunc();
         desativarCaixas();
     }//GEN-LAST:event_btSalvarMudançasActionPerformed
 
@@ -276,6 +271,18 @@ public class DadosPessoaisFuncionarios extends javax.swing.JFrame {
         cxSalario.setEnabled(false);
         cxCargo.setEnabled(false);
         cxPlaca.setEnabled(false); 
+    }
+    
+    public void setarCaixasFunc(){
+        index = Conexao.getConexao().achaFuncionarioCpf(CondoWare.getCpf());
+        cxNome.setText(Bancos.getBancos().getBdFuncionario().get(index).getNome());
+        cxCPF.setText(Bancos.getBancos().getBdFuncionario().get(index).getCpf());
+        cxEmail.setText(Bancos.getBancos().getBdFuncionario().get(index).getEmail());
+        cxSenha.setText(Bancos.getBancos().getBdFuncionario().get(index).getSenha());
+        cxSalario.setText(Float.toString(Bancos.getBancos().getBdFuncionario().get(index).getSalario()));
+        cxCargo.setText(Bancos.getBancos().getBdFuncionario().get(index).getCargo());
+        cxPlaca.setText(Bancos.getBancos().getBdFuncionario().get(index).getVeiculo().getPlaca());
+        desativarCaixas();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

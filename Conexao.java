@@ -89,6 +89,7 @@ public class Conexao {
     //--------------------------------------------------------- // relacionado aos Condôminos
     
     public ResultSet atualizaBancoCondomino() {
+        Bancos.getBancos().getBdCondomino().clear();
         try {
             Statement stm = con.createStatement();
             ResultSet rs = null;
@@ -200,6 +201,7 @@ public class Conexao {
     
     public ResultSet atualizaBancoFuncionario() {
         try {
+            Bancos.getBancos().getBdFuncionario().clear();
             Statement stm = con.createStatement();
             ResultSet rs = null;
             rs = stm.executeQuery("SELECT * FROM relatorio_funcionarios");
@@ -321,6 +323,7 @@ public class Conexao {
     //-------------------------------------------------Visitantes
     
     public ResultSet atualizaBancoVisitante() {
+        Bancos.getBancos().getBdVisitante().clear();
         try {
             Statement stm = con.createStatement();
             ResultSet rs = null;
