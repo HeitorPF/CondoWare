@@ -10,6 +10,9 @@ package condoware.CondoWare;
  */
 public class EditLazer extends javax.swing.JFrame {
 
+    String tipo = "";
+    int capacidade = 0;
+    float aluguel = 0;
     /**
      * Creates new form EditLazer
      */
@@ -49,6 +52,11 @@ public class EditLazer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Editar Area de Lazer");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         rotCapacidade.setText("Capacidade:");
 
@@ -149,8 +157,26 @@ public class EditLazer extends javax.swing.JFrame {
         limpar();
     }//GEN-LAST:event_btLimparActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        cxId.setEnabled(false);
+        mostrarDados();
+    }//GEN-LAST:event_formWindowActivated
+
+    public void receberLazer(String tp, int cap, float valor){
+        tipo = tp;
+        capacidade = cap;
+        aluguel = valor;
+    }
+    
+    public void mostrarDados(){
+        int index = Conexao.getConexao().achaLazer(tipo, capacidade, aluguel);
+        cxId.setText(Integer.toString(Bancos.getBancos().getBdAreaDeLazer().get(index).getId()));
+        cxTipo.setText(Bancos.getBancos().getBdAreaDeLazer().get(index).getTipo());
+        cxCapacidade.setText(Integer.toString(Bancos.getBancos().getBdAreaDeLazer().get(index).getCapacidade()));
+        cxAluguel.setText(Float.toString(Bancos.getBancos().getBdAreaDeLazer().get(index).getValor()));
+    }
+    
     public void limpar(){
-        cxId.setText("");
         cxTipo.setText("");
         cxCapacidade.setText("");
         cxAluguel.setText("");
